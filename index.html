@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Giovani Oliveira — Backend Developer & Software Student from São Paulo, Brazil." />
+  <meta name="author" content="Giovani Oliveira" />
+  <meta property="og:title" content="Giovani Oliveira — Portfolio" />
+  <meta property="og:description" content="Backend Developer & Software Student from São Paulo, Brazil." />
+  <meta property="og:type" content="website" />
+  <title>Giovani Oliveira — Portfolio</title>
+
+  <!-- Devicons (tech stack logos) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+  />
+  <!-- Font Awesome 6 Free (UI icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <!-- AOS — Animate On Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: "#6366f1",
+            "accent-light": "#818cf8",
+            "accent-violet": "#8b5cf6",
+          },
+        },
+      },
+    };
+  </script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="bg-slate-900 text-slate-100">
+
+  <!-- ════════════════════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="flex items-center justify-between">
+
+        <!-- Logo / Name -->
+        <a href="#hero" class="text-lg font-bold tracking-tight hover:opacity-80 transition-opacity">
+          <span class="gradient-text">G.</span><span class="text-slate-100">Oliveira</span>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <ul class="hidden md:flex items-center gap-7" role="list">
+          <li><a href="#about"         class="nav-link" data-i18n="nav_about">About</a></li>
+          <li><a href="#experience"    class="nav-link" data-i18n="nav_experience">Experience</a></li>
+          <li><a href="#skills"        class="nav-link" data-i18n="nav_skills">Skills</a></li>
+          <li><a href="#projects"      class="nav-link" data-i18n="nav_projects">Projects</a></li>
+          <li><a href="#certifications" class="nav-link" data-i18n="nav_certifications">Certifications</a></li>
+          <li><a href="#contact"       class="nav-link" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+
+        <!-- Lang Toggle + Mobile Hamburger -->
+        <div class="flex items-center gap-3">
+          <button
+            id="lang-toggle"
+            data-i18n-aria="nav_lang_toggle_aria"
+            aria-label="Switch language"
+          >EN</button>
+
+          <!-- Hamburger (mobile only) -->
+          <button
+            id="menu-btn"
+            class="md:hidden"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span class="bar-top"></span>
+            <span class="bar-mid"></span>
+            <span class="bar-bot"></span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" role="menu" aria-label="Mobile navigation">
+        <ul class="flex flex-col gap-1 pt-4 pb-2" role="list">
+          <li><a href="#about"          class="nav-link block py-2 px-1" role="menuitem" data-i18n="nav_about">About</a></li>
+          <li><a href="#experience"     class="nav-link block py-2 px-1" role="menuitem" data-i18n="nav_experience">Experience</a></li>
+          <li><a href="#skills"         class="nav-link block py-2 px-1" role="menuitem" data-i18n="nav_skills">Skills</a></li>
+          <li><a href="#projects"       class="nav-link block py-2 px-1" role="menuitem" data-i18n="nav_projects">Projects</a></li>
+          <li><a href="#certifications" class="nav-link block py-2 px-1" role="menuitem" data-i18n="nav_certifications">Certifications</a></li>
+          <li><a href="#contact"        class="nav-link block py-2 px-1" role="menuitem" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Introduction">
+    <div class="container relative z-10">
+      <div class="max-w-3xl">
+
+        <p class="hero-greeting mb-3" data-i18n="hero_greeting">Hello, I'm</p>
+
+        <h1 class="hero-name mb-4">
+          <span class="gradient-text">Giovani</span> Oliveira
+        </h1>
+
+        <!-- Typewriter -->
+        <div class="hero-role-wrapper mb-6">
+          <span class="hero-role">
+            <span id="typewriter" aria-live="polite">Backend Developer</span>
+          </span>
+        </div>
+
+        <p class="text-slate-400 text-lg max-w-xl mb-10 leading-relaxed" data-i18n="hero_tagline">
+          Software development student from São Paulo, Brazil — passionate about backend development, open source, and building things that matter.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4">
+          <a href="#projects" class="btn-primary">
+            <i class="fa-solid fa-code-branch" aria-hidden="true"></i>
+            <span data-i18n="hero_cta_projects">View Projects</span>
+          </a>
+          <a href="#contact" class="btn-secondary">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span data-i18n="hero_cta_contact">Get in Touch</span>
+          </a>
+          <a href="Resume Giovani Oliveira.pdf" target="_blank" rel="noopener" class="btn-secondary">
+            <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+            <span data-i18n="hero_cta_resume">Resume</span>
+          </a>
+        </div>
+
+        <!-- Social quick links -->
+        <div class="flex gap-4 mt-8">
+          <a
+            href="https://github.com/giovaniolivr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-500 hover:text-accent-light transition-colors text-xl"
+            aria-label="GitHub"
+          ><i class="fa-brands fa-github"></i></a>
+          <a
+            href="https://linkedin.com/in/giovaniolivr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-500 hover:text-accent-light transition-colors text-xl"
+            aria-label="LinkedIn"
+          ><i class="fa-brands fa-linkedin"></i></a>
+          <a
+            href="mailto:giovaniolivr@gmail.com"
+            class="text-slate-500 hover:text-accent-light transition-colors text-xl"
+            aria-label="Email"
+          ><i class="fa-solid fa-envelope"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <span class="text-xs tracking-widest uppercase" data-i18n="hero_scroll">Scroll down</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════════════════════════ -->
+  <section id="about" aria-label="About me">
+    <div class="container">
+
+      <!-- Section Header -->
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-subtitle" data-i18n="about_section_subtitle">A little background</p>
+        <h2 class="section-title" data-i18n="about_section_title">About Me</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+
+        <!-- Avatar column -->
+        <div class="flex justify-center" data-aos="fade-right">
+          <div class="avatar-wrapper">
+            <div class="avatar-ring">
+              <div class="avatar-inner">
+                <img src="photo.jpg" alt="Giovani Oliveira" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio column -->
+        <div data-aos="fade-left">
+          <p class="text-slate-300 mb-4 leading-relaxed" data-i18n="about_p1">
+            I'm a 23-year-old Software Analysis and Development student at FATEC São Paulo...
+          </p>
+          <p class="text-slate-300 mb-4 leading-relaxed" data-i18n="about_p2">
+            I've worked as a freelance backend developer...
+          </p>
+          <p class="text-slate-400 mb-6 leading-relaxed" data-i18n="about_p3">
+            Outside of work, I'm interested in cybersecurity...
+          </p>
+
+          <!-- Info rows -->
+          <div class="space-y-3 mb-8">
+            <div class="flex items-center gap-3 text-sm">
+              <i class="fa-solid fa-location-dot text-accent-light w-5 text-center" aria-hidden="true"></i>
+              <span class="text-slate-300" data-i18n="about_location">São Paulo, Brazil</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm">
+              <i class="fa-solid fa-graduation-cap text-accent-light w-5 text-center" aria-hidden="true"></i>
+              <span class="text-slate-300">
+                <span data-i18n="about_education">FATEC — Software Analysis & Development</span>
+                <span class="text-slate-500 ml-1">·</span>
+                <span class="text-slate-500 ml-1" data-i18n="about_education_period">Aug 2023 – Present</span>
+              </span>
+            </div>
+            <div class="flex items-center gap-3 text-sm">
+              <i class="fa-solid fa-language text-accent-light w-5 text-center" aria-hidden="true"></i>
+              <span class="text-slate-300" data-i18n="about_languages_spoken">Portuguese (Native) · English (Proficient)</span>
+            </div>
+          </div>
+
+          <a href="Resume Giovani Oliveira.pdf" target="_blank" rel="noopener" class="btn-primary inline-flex">
+            <i class="fa-solid fa-download" aria-hidden="true"></i>
+            <span data-i18n="about_download_resume">Download Resume</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Stats row -->
+      <div class="grid grid-cols-3 gap-4 mt-16 max-w-lg mx-auto" data-aos="fade-up">
+        <div class="stat-card">
+          <div class="stat-number" data-count="3" data-count-suffix="+">3+</div>
+          <p class="text-slate-400 text-xs mt-1 leading-tight" data-i18n="about_stat_exp">Years of Experience</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-count="5" data-count-suffix="+">5+</div>
+          <p class="text-slate-400 text-xs mt-1 leading-tight" data-i18n="about_stat_projects">Projects Built</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-count="2">2</div>
+          <p class="text-slate-400 text-xs mt-1 leading-tight" data-i18n="about_stat_langs">Languages Spoken</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       EXPERIENCE
+  ════════════════════════════════════════════════════════════ -->
+  <section id="experience" class="bg-slate-800/30" aria-label="Work experience">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-subtitle" data-i18n="experience_section_subtitle">My professional journey</p>
+        <h2 class="section-title" data-i18n="experience_section_title">Experience</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="timeline">
+
+        <!-- ── Job 1: Freelancer ──────────────────────── -->
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="0">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-card">
+            <p class="timeline-period" data-i18n="exp1_period">Mar 2023 – Oct 2024</p>
+            <h3 class="timeline-title" data-i18n="exp1_title">Backend Development Freelancer</h3>
+            <p class="timeline-company">
+              <i class="fa-solid fa-briefcase mr-1" aria-hidden="true"></i>
+              <span data-i18n="exp1_company">Self-employed</span>
+            </p>
+            <p class="timeline-desc" data-i18n="exp1_desc">
+              Developed small-to-medium web solutions for clients using .NET, Django REST API, SQL Server, MySQL, and Docker.
+            </p>
+            <div class="flex flex-wrap gap-2" data-i18n-tags="exp1_tags"></div>
+          </div>
+        </div>
+
+        <!-- ── Job 2: Outlier ─────────────────────────── -->
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-card">
+            <p class="timeline-period" data-i18n="exp2_period">Jun 2024 – Jun 2025</p>
+            <h3 class="timeline-title" data-i18n="exp2_title">AI Trainer — Brazilian Portuguese</h3>
+            <p class="timeline-company">
+              <i class="fa-solid fa-building mr-1" aria-hidden="true"></i>
+              <span data-i18n="exp2_company">Outlier</span>
+            </p>
+            <p class="timeline-desc" data-i18n="exp2_desc">
+              Specialized in training and optimizing AI language models for Brazilian Portuguese.
+            </p>
+            <div class="flex flex-wrap gap-2" data-i18n-tags="exp2_tags"></div>
+          </div>
+        </div>
+
+        <!-- ── Job 3: e2f ──────────────────────────────── -->
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-card">
+            <p class="timeline-period" data-i18n="exp3_period">Oct 2024 – Aug 2025</p>
+            <h3 class="timeline-title" data-i18n="exp3_title">Annotator — Brazilian Portuguese</h3>
+            <p class="timeline-company">
+              <i class="fa-solid fa-building mr-1" aria-hidden="true"></i>
+              <span data-i18n="exp3_company">e2f</span>
+            </p>
+            <p class="timeline-desc" data-i18n="exp3_desc">
+              Specialized in data annotation and optimization of AI models in Brazilian Portuguese.
+            </p>
+            <div class="flex flex-wrap gap-2" data-i18n-tags="exp3_tags"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       SKILLS
+  ════════════════════════════════════════════════════════════ -->
+  <section id="skills" aria-label="Skills and technologies">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-subtitle" data-i18n="skills_section_subtitle">Technologies I work with</p>
+        <h2 class="section-title" data-i18n="skills_section_title">Skills</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+
+        <!-- Programming Languages -->
+        <div class="skills-category" data-aos="fade-up" data-aos-delay="0">
+          <p class="skills-category-title">
+            <i class="fa-solid fa-code text-accent-light" aria-hidden="true"></i>
+            <span data-i18n="skills_cat_languages">Programming Languages</span>
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="devicon-tag"><i class="devicon-python-plain colored"></i> Python</span>
+            <span class="devicon-tag"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+            <span class="devicon-tag"><i class="devicon-csharp-plain colored"></i> C#</span>
+            <span class="devicon-tag"><i class="devicon-java-plain colored"></i> Java</span>
+            <span class="devicon-tag"><i class="devicon-c-plain colored"></i> C</span>
+            <span class="devicon-tag"><i class="devicon-cplusplus-plain colored"></i> C++</span>
+          </div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="skills-category" data-aos="fade-up" data-aos-delay="100">
+          <p class="skills-category-title">
+            <i class="fa-solid fa-layer-group text-accent-light" aria-hidden="true"></i>
+            <span data-i18n="skills_cat_frameworks">Frameworks & Libraries</span>
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="devicon-tag"><i class="devicon-django-plain colored"></i> Django</span>
+            <span class="devicon-tag"><i class="devicon-django-plain"></i> Django REST</span>
+            <span class="devicon-tag"><i class="devicon-dot-net-plain colored"></i> .NET</span>
+            <span class="devicon-tag"><i class="devicon-dot-net-plain"></i> ASP.NET</span>
+            <span class="devicon-tag"><i class="devicon-html5-plain colored"></i> HTML5</span>
+            <span class="devicon-tag"><i class="devicon-css3-plain colored"></i> CSS3</span>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="skills-category" data-aos="fade-up" data-aos-delay="200">
+          <p class="skills-category-title">
+            <i class="fa-solid fa-database text-accent-light" aria-hidden="true"></i>
+            <span data-i18n="skills_cat_databases">Databases</span>
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="devicon-tag"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
+            <span class="devicon-tag"><i class="devicon-mysql-plain colored"></i> MySQL</span>
+            <span class="devicon-tag"><i class="devicon-microsoftsqlserver-plain colored"></i> SQL Server</span>
+            <span class="devicon-tag"><i class="devicon-sqlite-plain colored"></i> SQLite</span>
+          </div>
+        </div>
+
+        <!-- Tools & DevOps -->
+        <div class="skills-category" data-aos="fade-up" data-aos-delay="300">
+          <p class="skills-category-title">
+            <i class="fa-solid fa-wrench text-accent-light" aria-hidden="true"></i>
+            <span data-i18n="skills_cat_tools">Tools & DevOps</span>
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="devicon-tag"><i class="devicon-docker-plain colored"></i> Docker</span>
+            <span class="devicon-tag"><i class="devicon-git-plain colored"></i> Git</span>
+            <span class="devicon-tag"><i class="devicon-github-original"></i> GitHub</span>
+            <span class="devicon-tag"><i class="devicon-linux-plain"></i> Linux</span>
+            <span class="devicon-tag"><i class="devicon-vscode-plain colored"></i> VS Code</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       PROJECTS
+  ════════════════════════════════════════════════════════════ -->
+  <section id="projects" class="bg-slate-800/30" aria-label="Projects">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-subtitle" data-i18n="projects_section_subtitle">Things I've built</p>
+        <h2 class="section-title" data-i18n="projects_section_title">Projects</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- ── Featured: Scout ──────────────────────────────────── -->
+      <div class="project-featured p-8 md:p-10 mb-8" data-aos="fade-up">
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+
+          <!-- Left: info -->
+          <div>
+            <div class="project-badge">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <span data-i18n="scout_badge">Featured Project</span>
+            </div>
+
+            <h3 class="text-2xl font-bold mb-1" data-i18n="scout_title">Scout</h3>
+            <p class="text-accent-light font-medium mb-4" data-i18n="scout_subtitle">Recruitment Management Platform</p>
+
+            <p class="text-slate-400 leading-relaxed mb-6" data-i18n="scout_desc">
+              A full-featured recruitment management system built with Django and Python.
+            </p>
+
+            <!-- Tech tags -->
+            <div class="flex flex-wrap gap-2 mb-6" data-i18n-tags="scout_tag_tech"></div>
+
+            <!-- Action buttons -->
+            <div class="flex gap-3 flex-wrap">
+              <a href="https://web-production-e6a54.up.railway.app/" target="_blank" rel="noopener" class="btn-primary">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                <span data-i18n="scout_live">Live Demo</span>
+              </a>
+              <a
+                href="https://github.com/giovaniolivr"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-outline-small"
+              >
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                <span data-i18n="scout_code">View Source</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: visual placeholder -->
+          <div
+            class="rounded-xl bg-slate-900 border border-slate-700 overflow-hidden flex items-center justify-center"
+            style="min-height: 220px;"
+            aria-label="Scout project preview"
+          >
+            <!-- Replace the icon below with an actual screenshot once available:
+                 <img src="assets/img/scout-preview.png" alt="Scout app screenshot" class="w-full h-auto" />
+            -->
+            <div class="text-center p-8">
+              <i class="fa-solid fa-magnifying-glass text-5xl text-slate-600 mb-4 block" aria-hidden="true"></i>
+              <p class="text-slate-500 text-sm">Screenshot coming soon</p>
+              <p class="text-slate-600 text-xs mt-1">Replace with <code>assets/img/scout-preview.png</code></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- More projects teaser -->
+      <p class="text-center text-slate-500 text-sm mt-4" data-aos="fade-up">
+        More projects on
+        <a
+          href="https://github.com/giovaniolivr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent-light hover:underline"
+        >GitHub <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i></a>
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       CERTIFICATIONS
+  ════════════════════════════════════════════════════════════ -->
+  <section id="certifications" aria-label="Certifications">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-subtitle" data-i18n="certs_section_subtitle">Credentials & learning</p>
+        <h2 class="section-title" data-i18n="certs_section_title">Certifications</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- ── TOEIC ──────────────────────────────────── -->
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="cert-icon" aria-hidden="true">
+            <i class="fa-solid fa-language"></i>
+          </div>
+          <p class="text-xs text-accent-light font-semibold tracking-wide uppercase mb-1" data-i18n="cert1_date">October 2023</p>
+          <h3 class="font-bold text-base mb-1 leading-snug" data-i18n="cert1_name">TOEIC</h3>
+          <p class="text-slate-500 text-sm mb-3" data-i18n="cert1_org">ETS</p>
+          <p class="text-slate-400 text-sm leading-relaxed" data-i18n="cert1_desc">CEFR language certification with 915/990 score.</p>
+        </div>
+
+        <!-- ── Cisco Cybersecurity ─────────────────────── -->
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="cert-icon" aria-hidden="true">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <p class="text-xs text-accent-light font-semibold tracking-wide uppercase mb-1" data-i18n="cert2_date">September 2023</p>
+          <h3 class="font-bold text-base mb-1 leading-snug" data-i18n="cert2_name">Cybersecurity Essentials</h3>
+          <p class="text-slate-500 text-sm mb-3" data-i18n="cert2_org">Cisco</p>
+          <p class="text-slate-400 text-sm leading-relaxed" data-i18n="cert2_desc">Intro to cybersecurity fundamentals.</p>
+        </div>
+
+        <!-- ── APIs in C# ─────────────────────────────── -->
+        <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="cert-icon" aria-hidden="true">
+            <i class="fa-solid fa-plug-circle-bolt"></i>
+          </div>
+          <p class="text-xs text-accent-light font-semibold tracking-wide uppercase mb-1" data-i18n="cert3_date">October 2024</p>
+          <h3 class="font-bold text-base mb-1 leading-snug" data-i18n="cert3_name">Working with APIs in C#</h3>
+          <p class="text-slate-500 text-sm mb-3" data-i18n="cert3_org">FATEC Americana</p>
+          <p class="text-slate-400 text-sm leading-relaxed" data-i18n="cert3_desc">Intensive course on backend APIs with .NET.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════════════════════════════ -->
+  <section id="contact" class="bg-slate-800/30" aria-label="Contact">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-subtitle" data-i18n="contact_section_subtitle">Let's connect</p>
+        <h2 class="section-title" data-i18n="contact_section_title">Get in Touch</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="max-w-xl mx-auto" data-aos="fade-up">
+        <p class="text-slate-400 text-center leading-relaxed mb-10" data-i18n="contact_desc">
+          I'm open to job opportunities, freelance projects, and interesting collaborations.
+        </p>
+
+        <div class="space-y-4">
+          <a
+            href="mailto:giovaniolivr@gmail.com"
+            class="contact-link"
+            aria-label="Send an email to Giovani"
+          >
+            <div class="contact-link-icon" aria-hidden="true">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500 uppercase tracking-wide font-semibold mb-0.5" data-i18n="contact_email_label">Send an Email</p>
+              <p class="font-medium">giovaniolivr@gmail.com</p>
+            </div>
+            <i class="fa-solid fa-chevron-right ml-auto text-slate-600" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="tel:+5519998441666"
+            class="contact-link"
+            aria-label="Call or WhatsApp Giovani"
+          >
+            <div class="contact-link-icon" aria-hidden="true">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500 uppercase tracking-wide font-semibold mb-0.5" data-i18n="contact_phone_label">WhatsApp / Phone</p>
+              <p class="font-medium">+55 (19) 99844-1666</p>
+            </div>
+            <i class="fa-solid fa-chevron-right ml-auto text-slate-600" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://github.com/giovaniolivr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link"
+          >
+            <div class="contact-link-icon" aria-hidden="true">
+              <i class="fa-brands fa-github"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500 uppercase tracking-wide font-semibold mb-0.5" data-i18n="contact_github_label">GitHub Profile</p>
+              <p class="font-medium">github.com/giovaniolivr</p>
+            </div>
+            <i class="fa-solid fa-chevron-right ml-auto text-slate-600" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://linkedin.com/in/giovaniolivr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link"
+          >
+            <div class="contact-link-icon" aria-hidden="true">
+              <i class="fa-brands fa-linkedin"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500 uppercase tracking-wide font-semibold mb-0.5" data-i18n="contact_linkedin_label">LinkedIn Profile</p>
+              <p class="font-medium">linkedin.com/in/giovaniolivr</p>
+            </div>
+            <i class="fa-solid fa-chevron-right ml-auto text-slate-600" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <p>
+        &copy; <span id="current-year">2025</span> Giovani Oliveira.
+        <span data-i18n="footer_rights">All rights reserved.</span>
+      </p>
+      <p class="mt-1 text-slate-600 text-xs">
+        <span data-i18n="footer_built">Built with</span>
+        <span class="text-red-400 mx-1">&#10084;</span>
+        <span data-i18n="footer_and">and</span>
+        <span class="text-accent-light mx-1">
+          <span data-i18n="footer_coffee">lots of coffee</span>
+        </span>
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ── Scroll to Top Button ──────────────────────────────────── -->
+  <button id="scroll-top" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       SCRIPTS (order matters: translations → i18n → AOS → main)
+  ════════════════════════════════════════════════════════════ -->
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Initialize i18n after DOM + translations are loaded
+    i18n.init();
+  </script>
+
+</body>
+</html>
