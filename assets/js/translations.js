@@ -86,6 +86,15 @@ const translations = {
     scout_code: "View Source",
     scout_coming_soon: "Coming Soon",
 
+    wiki_badge: "Company Project",
+    wiki_title: "Desktop Wiki",
+    wiki_subtitle: "Internal Knowledge Base Platform",
+    wiki_desc: "Internal wiki platform built for a company. Features hierarchical topic organization, rich content blocks (text, images, video, checklists), a global glossary with inline tooltips, and a regional/territorial structure for geographic data. Built with Django and deployed on Render with Cloudflare R2 for media storage.",
+    wiki_tag_tech: "Django|Python|PostgreSQL|Bootstrap|Cloudflare R2",
+    wiki_live: "Live Demo",
+    wiki_code: "View Source",
+    wiki_preview_placeholder: "Screenshot coming soon",
+
     // ── Certifications ────────────────────────────────────────────────────────
     certs_section_title: "Certifications",
     certs_section_subtitle: "Credentials & learning",
@@ -200,6 +209,15 @@ const translations = {
     scout_live: "Demo ao Vivo",
     scout_code: "Ver Código",
     scout_coming_soon: "Em Breve",
+
+    wiki_badge: "Projeto Corporativo",
+    wiki_title: "Desktop Wiki",
+    wiki_subtitle: "Plataforma Interna de Base de Conhecimento",
+    wiki_desc: "Plataforma de wiki interna desenvolvida para uma empresa. Conta com organização hierárquica de tópicos, blocos de conteúdo ricos (texto, imagens, vídeo, checklists), glossário global com tooltips inline e estrutura regional/territorial para dados geográficos. Desenvolvida com Django e implantada no Render com Cloudflare R2 para armazenamento de mídia.",
+    wiki_tag_tech: "Django|Python|PostgreSQL|Bootstrap|Cloudflare R2",
+    wiki_live: "Demo ao Vivo",
+    wiki_code: "Ver Código",
+    wiki_preview_placeholder: "Screenshot em breve",
 
     // ── Certifications ────────────────────────────────────────────────────────
     certs_section_title: "Certificações",
