@@ -31,7 +31,7 @@ const translations = {
     // ── About ────────────────────────────────────────────────────────────────
     about_section_title: "About Me",
     about_section_subtitle: "A little background",
-    about_p1: "I'm a 23-year-old Software Analysis and Development student at FATEC São Paulo, with hands-on experience in backend development using Django, .NET, and various databases.",
+    about_p1: "I'm a 24-year-old Software Analysis and Development student at FATEC São Paulo, with hands-on experience in backend development using Django, .NET, and various databases.",
     about_p2: "I've worked as a freelance backend developer, an AI trainer for Brazilian Portuguese at Outlier, and a data annotator at e2f — building both technical depth and a strong work ethic along the way.",
     about_p3: "Outside of work, I'm interested in cybersecurity, artificial intelligence, game development, and contributing to open source projects.",
     about_location: "São Paulo, Brazil",
@@ -65,6 +65,12 @@ const translations = {
     exp3_desc: "Specialized in data annotation and optimization of AI models in Brazilian Portuguese, focusing on text and video content. Ensured high-quality labeled datasets for model training.",
     exp3_tags: "Data Annotation|AI|Video Processing|NLP",
 
+    exp4_title: "Junior Premium Support Analyst",
+    exp4_company: "Desktop",
+    exp4_period: "Jun 2026 – Sep 2026",
+    exp4_desc: "Specialized technical support at an Internet Service Provider (ISP), acting as a liaison between customers, field teams, and internal departments to ensure efficient incident resolution and service continuity.",
+    exp4_tags: "Technical Support|Incident Management|ISP Operations",
+
     // ── Skills ────────────────────────────────────────────────────────────────
     skills_section_title: "Skills",
     skills_section_subtitle: "Technologies I work with",
@@ -89,8 +95,8 @@ const translations = {
     wiki_badge: "Company Project",
     wiki_title: "Desktop Wiki",
     wiki_subtitle: "Internal Knowledge Base Platform",
-    wiki_desc: "Internal wiki platform built for Desktop. Features hierarchical topic organization, rich content blocks (text, images, video, checklists), a global glossary with inline tooltips, and a regional/territorial structure for geographic data. Built with Django and deployed on Render with Cloudflare R2 for media storage.",
-    wiki_tag_tech: "Django|Python|PostgreSQL|Bootstrap|Cloudflare R2",
+    wiki_desc: "Internal wiki platform built for Desktop, featuring an AI-powered RAG chatbot. Includes hierarchical topic organization, rich content blocks (text, images, video, checklists), a global glossary with inline tooltips, and a regional/territorial structure for geographic data. Built with Django and deployed on Render with Cloudflare R2 for media storage.",
+    wiki_tag_tech: "Django|Python|PostgreSQL|Bootstrap|Cloudflare Workers AI|Cloudflare R2",
     wiki_live: "Live Demo",
     wiki_code: "View Source",
     wiki_preview_placeholder: "Screenshot coming soon",
@@ -155,7 +161,7 @@ const translations = {
     // ── About ────────────────────────────────────────────────────────────────
     about_section_title: "Sobre Mim",
     about_section_subtitle: "Um pouco sobre minha trajetória",
-    about_p1: "Tenho 23 anos e sou estudante de Análise e Desenvolvimento de Sistemas na FATEC São Paulo, com experiência prática em desenvolvimento backend utilizando Django, .NET e diversas tecnologias de banco de dados.",
+    about_p1: "Tenho 24 anos e sou estudante de Análise e Desenvolvimento de Sistemas na FATEC São Paulo, com experiência prática em desenvolvimento backend utilizando Django, .NET e diversas tecnologias de banco de dados.",
     about_p2: "Trabalhei como desenvolvedor backend freelancer, treinador de IA para o português brasileiro na Outlier, e anotador de dados na e2f — construindo profundidade técnica e uma forte ética de trabalho ao longo do caminho.",
     about_p3: "Fora do trabalho, me interesso por segurança cibernética, inteligência artificial, desenvolvimento de jogos e contribuição com projetos de código aberto.",
     about_location: "São Paulo, Brasil",
@@ -189,6 +195,12 @@ const translations = {
     exp3_desc: "Especializado em anotação de dados e otimização de modelos de IA em português brasileiro, com foco em conteúdo de texto e vídeo. Garantia da qualidade de conjuntos de dados rotulados para treinamento de modelos.",
     exp3_tags: "Anotação de Dados|IA|Processamento de Vídeo|NLP",
 
+    exp4_title: "Analista de Suporte Premium Júnior",
+    exp4_company: "Desktop",
+    exp4_period: "Jun 2026 – Set 2026",
+    exp4_desc: "Suporte técnico especializado em um provedor de internet (ISP), atuando como elo entre clientes, equipes de campo e departamentos internos para garantir a resolução eficiente de incidentes e a continuidade do serviço.",
+    exp4_tags: "Suporte Técnico|Gestão de Incidentes|Operações de ISP",
+
     // ── Skills ────────────────────────────────────────────────────────────────
     skills_section_title: "Habilidades",
     skills_section_subtitle: "Tecnologias com as quais trabalho",
@@ -213,7 +225,7 @@ const translations = {
     wiki_badge: "Projeto Corporativo",
     wiki_title: "Desktop Wiki",
     wiki_subtitle: "Plataforma Interna de Base de Conhecimento",
-    wiki_desc: "Plataforma de wiki interna desenvolvida para a Desktop. Conta com organização hierárquica de tópicos, blocos de conteúdo ricos (texto, imagens, vídeo, checklists), glossário global com tooltips inline e estrutura regional/territorial para dados geográficos. Desenvolvida com Django e implantada no Render com Cloudflare R2 para armazenamento de mídia.",
+    wiki_desc: "Plataforma de wiki interna desenvolvida para a Desktop, com um chatbot de IA baseado em RAG. Conta com organização hierárquica de tópicos, blocos de conteúdo ricos (texto, imagens, vídeo, checklists), glossário global com tooltips inline e estrutura regional/territorial para dados geográficos. Desenvolvida com Django e implantada no Render com Cloudflare R2 para armazenamento de mídia.",
     wiki_tag_tech: "Django|Python|PostgreSQL|Bootstrap|Cloudflare R2",
     wiki_live: "Demo ao Vivo",
     wiki_code: "Ver Código",
