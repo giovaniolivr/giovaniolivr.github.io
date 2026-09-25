@@ -78,6 +78,11 @@ right-click `index.html` → "Open with Live Server"
 4. `git push -u origin main`
 5. GitHub Pages serves from `main` branch root automatically.
 
+## Cache busting
+GitHub Pages serves assets with `max-age=600`: right after a deploy, returning visitors get the new
+HTML with the old CSS/JS (e.g. `[hero_role]` placeholders). Local CSS/JS links carry `?v=YYYYMMDD` —
+**bump it in `index.html` whenever style.css or a JS file changes.**
+
 ## Design (DESIGN.md)
 `DESIGN.md` is the Meta template from getdesign.md (`npx getdesign@latest add meta` just copies
 `templates/meta.md` from the npm package to `./DESIGN.md`; Node isn't installed on this machine,
