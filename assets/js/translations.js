@@ -23,10 +23,7 @@ const translations = {
     hero_cta_projects: "View Projects",
     hero_cta_contact: "Get in Touch",
     hero_cta_resume: "Resume",
-    hero_scroll: "Scroll down",
-
-    // Typewriter cycle — separated by | — keep concise
-    hero_roles: "Backend Developer|Software Student|Full Stack Enthusiast|FOSS Advocate|API Builder",
+    hero_role: "Backend Developer · Software Student",
 
     // ── About ────────────────────────────────────────────────────────────────
     about_section_title: "About Me",
@@ -39,9 +36,6 @@ const translations = {
     about_education_period: "Aug 2023 – Present",
     about_languages_spoken: "Portuguese (Native) · English (Proficient)",
     about_download_resume: "Download Resume",
-    about_stat_exp: "Years of Experience",
-    about_stat_projects: "Projects Built",
-    about_stat_langs: "Languages Spoken",
 
     // ── Experience ───────────────────────────────────────────────────────────
     experience_section_title: "Experience",
@@ -78,19 +72,33 @@ const translations = {
     skills_cat_frameworks: "Frameworks & Libraries",
     skills_cat_databases: "Databases",
     skills_cat_tools: "Tools & DevOps",
+    skills_cat_data: "Data & Machine Learning",
 
     // ── Projects ──────────────────────────────────────────────────────────────
     projects_section_title: "Projects",
     projects_section_subtitle: "Things I've built",
 
-    scout_badge: "Featured Project",
+    w8t_badge: "Featured Project",
+    w8t_title: "W8T",
+    w8t_subtitle: "Weight tracking with statistics & machine learning",
+    w8t_desc: "A study project in time-series statistics: daily weigh-ins become trend, plateau and anomaly detection, forecasts with honest uncertainty, and a plain-language summary — built and evaluated like a real ML system, on classical models suited to small personal data.",
+    w8t_h1: "7 forecasting models (damped Holt, Kalman filter, Gaussian Process, ensemble), always with 95% intervals — the recommended ensemble held ~95% coverage across 30 synthetic series.",
+    w8t_h2: "Walk-forward backtesting with Diebold–Mariano tests: no model is called better without statistical evidence.",
+    w8t_h3: "Kalman-based detectors: 12× fewer false anomaly alarms than the rule-based baseline; gap reconstruction with uncertainty.",
+    w8t_h4: "An LLM (Gemini) that only narrates numbers already computed — every number in the text is checked against them.",
+    w8t_tag_tech: "Python|statsmodels|scikit-learn|pandas|Streamlit|Plotly|SQLAlchemy|PostgreSQL|Gemini API",
+    w8t_live: "Live Demo",
+    w8t_code: "View Source",
+
+    projects_other_title: "Other projects",
+    projects_more_title: "More on GitHub",
+    projects_more_desc: "Experiments, coursework and smaller tools.",
+
     scout_title: "Scout",
-    scout_subtitle: "Recruitment Management Platform",
-    scout_desc: "A full-featured recruitment management system built with Django and Python. Companies can publish job listings, review candidate applications, and manage the hiring pipeline. Candidates can create profiles, upload CVs, and track their application status. Includes role-based access control, file management for CVs, and a clean admin dashboard.",
-    scout_tag_tech: "Django|Python|PostgreSQL|SQLite|HTML|CSS|JavaScript",
+    scout_desc_short: "Recruitment management CRUD: job listings, applications and role-based access for companies and candidates.",
+    scout_tag_line: "Django · Python · PostgreSQL",
     scout_live: "Live Demo",
     scout_code: "View Source",
-    scout_coming_soon: "Coming Soon",
 
     wiki_badge: "Company Project",
     wiki_title: "Desktop Wiki",
@@ -154,9 +162,7 @@ const translations = {
     hero_cta_projects: "Ver Projetos",
     hero_cta_contact: "Entrar em Contato",
     hero_cta_resume: "Currículo",
-    hero_scroll: "Role para baixo",
-
-    hero_roles: "Desenvolvedor Backend|Estudante de Software|Entusiasta Full Stack|Defensor do FOSS|Construtor de APIs",
+    hero_role: "Desenvolvedor Backend · Estudante de Software",
 
     // ── About ────────────────────────────────────────────────────────────────
     about_section_title: "Sobre Mim",
@@ -169,9 +175,6 @@ const translations = {
     about_education_period: "Ago 2023 – Presente",
     about_languages_spoken: "Português (Nativo) · Inglês (Proficiente)",
     about_download_resume: "Baixar Currículo",
-    about_stat_exp: "Anos de Experiência",
-    about_stat_projects: "Projetos Desenvolvidos",
-    about_stat_langs: "Idiomas Falados",
 
     // ── Experience ───────────────────────────────────────────────────────────
     experience_section_title: "Experiência",
@@ -208,19 +211,33 @@ const translations = {
     skills_cat_frameworks: "Frameworks & Bibliotecas",
     skills_cat_databases: "Bancos de Dados",
     skills_cat_tools: "Ferramentas & DevOps",
+    skills_cat_data: "Dados & Machine Learning",
 
     // ── Projects ──────────────────────────────────────────────────────────────
     projects_section_title: "Projetos",
     projects_section_subtitle: "O que eu construí",
 
-    scout_badge: "Projeto em Destaque",
+    w8t_badge: "Projeto em Destaque",
+    w8t_title: "W8T",
+    w8t_subtitle: "Acompanhamento de peso com estatística & machine learning",
+    w8t_desc: "Projeto de estudo em estatística de séries temporais: pesagens diárias viram detecção de tendência, platô e anomalia, previsões com incerteza honesta e um resumo em linguagem natural — construído e avaliado como um sistema de ML de verdade, com modelos clássicos adequados a poucos dados pessoais.",
+    w8t_h1: "7 modelos de previsão (Holt amortecido, filtro de Kalman, Processo Gaussiano, combinação), sempre com intervalo de 95% — a combinação recomendada manteve ~95% de cobertura em 30 séries sintéticas.",
+    w8t_h2: "Backtesting walk-forward com teste de Diebold–Mariano: nenhum modelo é declarado melhor sem evidência estatística.",
+    w8t_h3: "Detectores baseados em Kalman: 12× menos alarmes falsos de anomalia que o baseline por regras; reconstrução de lacunas com incerteza.",
+    w8t_h4: "Um LLM (Gemini) que só narra números já calculados — cada número do texto é conferido com eles.",
+    w8t_tag_tech: "Python|statsmodels|scikit-learn|pandas|Streamlit|Plotly|SQLAlchemy|PostgreSQL|Gemini API",
+    w8t_live: "Demo ao Vivo",
+    w8t_code: "Ver Código",
+
+    projects_other_title: "Outros projetos",
+    projects_more_title: "Mais no GitHub",
+    projects_more_desc: "Experimentos, trabalhos da faculdade e ferramentas menores.",
+
     scout_title: "Scout",
-    scout_subtitle: "Plataforma de Gestão de Recrutamento",
-    scout_desc: "Sistema completo de gestão de recrutamento desenvolvido com Django e Python. Empresas podem publicar vagas, analisar candidaturas e gerenciar o pipeline de contratação. Candidatos podem criar perfis, enviar currículos e acompanhar o status das suas candidaturas. Inclui controle de acesso por função, gerenciamento de arquivos e um painel administrativo limpo.",
-    scout_tag_tech: "Django|Python|PostgreSQL|SQLite|HTML|CSS|JavaScript",
+    scout_desc_short: "CRUD de gestão de recrutamento: vagas, candidaturas e controle de acesso por função para empresas e candidatos.",
+    scout_tag_line: "Django · Python · PostgreSQL",
     scout_live: "Demo ao Vivo",
     scout_code: "Ver Código",
-    scout_coming_soon: "Em Breve",
 
     wiki_badge: "Projeto Corporativo",
     wiki_title: "Desktop Wiki",

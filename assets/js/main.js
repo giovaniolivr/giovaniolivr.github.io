@@ -1,88 +1,23 @@
 /**
  * main.js — Portfolio interactions
- * Handles: AOS init, typewriter, navbar scroll, mobile menu, scroll-to-top
+ * Handles: AOS init, active nav pill, mobile menu, scroll-to-top
  */
 
 document.addEventListener("DOMContentLoaded", () => {
   // ── AOS (Animate On Scroll) ──────────────────────────────────────────────
+  // Short, subtle fade-ups (DESIGN.md: 150-250ms ease-out for surface transitions)
   AOS.init({
-    duration: 700,
-    easing: "ease-out-cubic",
+    duration: 400,
+    easing: "ease-out",
     once: true,
-    offset: 60,
+    offset: 40,
   });
 
-  // ── Typewriter Effect ────────────────────────────────────────────────────
-  const typewriterEl = document.getElementById("typewriter");
-
-  function createTypewriter(el, roles) {
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let timeout;
-
-    const TYPE_SPEED = 80;
-    const DELETE_SPEED = 40;
-    const PAUSE_AFTER_WORD = 1800;
-    const PAUSE_BEFORE_TYPE = 300;
-
-    function tick() {
-      const current = roles[roleIndex];
-
-      if (!isDeleting) {
-        el.textContent = current.substring(0, charIndex + 1);
-        charIndex++;
-        if (charIndex === current.length) {
-          isDeleting = true;
-          timeout = setTimeout(tick, PAUSE_AFTER_WORD);
-          return;
-        }
-        timeout = setTimeout(tick, TYPE_SPEED);
-      } else {
-        el.textContent = current.substring(0, charIndex - 1);
-        charIndex--;
-        if (charIndex === 0) {
-          isDeleting = false;
-          roleIndex = (roleIndex + 1) % roles.length;
-          timeout = setTimeout(tick, PAUSE_BEFORE_TYPE);
-          return;
-        }
-        timeout = setTimeout(tick, DELETE_SPEED);
-      }
-    }
-
-    function updateRoles(newRoles) {
-      clearTimeout(timeout);
-      roles = newRoles;
-      roleIndex = 0;
-      charIndex = 0;
-      isDeleting = false;
-      tick();
-    }
-
-    tick();
-    return { updateRoles };
-  }
-
-  if (typewriterEl) {
-    const lang = i18n.getCurrentLang();
-    const roles = i18n.t(lang, "hero_roles").split("|");
-    window._typewriter = createTypewriter(typewriterEl, roles);
-  }
-
-  // ── Navbar: shrink + active-link on scroll ───────────────────────────────
-  const navbar = document.getElementById("navbar");
+  // ── Navbar: active pill follows the section in view ─────────────────────
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll("section[id]");
 
   function updateNav() {
-    // Shrink navbar after scrolling down
-    if (window.scrollY > 50) {
-      navbar.classList.add("navbar-scrolled");
-    } else {
-      navbar.classList.remove("navbar-scrolled");
-    }
-
     // Highlight active section
     let current = "";
     sections.forEach((section) => {
@@ -159,45 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ── Skill tags: build from data-skills attribute ──────────────────────────
-  // Skills data is structured in the DOM via data-skills attribute
-  // Format: "Python,Django,PostgreSQL"
-  document.querySelectorAll("[data-skills]").forEach((container) => {
-    const skills = container.dataset.skills.split(",").filter(Boolean);
-    container.innerHTML = skills
-      .map((s) => `<span class="skill-tag">${s.trim()}</span>`)
-      .join("");
-  });
-
   // ── Year in footer ────────────────────────────────────────────────────────
   const yearEl = document.getElementById("current-year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // ── Intersection Observer for number counters ─────────────────────────────
-  const counters = document.querySelectorAll("[data-count]");
-  if (counters.length) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const el = entry.target;
-          const target = parseInt(el.dataset.count, 10);
-          let current = 0;
-          const step = Math.ceil(target / 40);
-          const timer = setInterval(() => {
-            current += step;
-            if (current >= target) {
-              el.textContent = target + (el.dataset.countSuffix || "");
-              clearInterval(timer);
-            } else {
-              el.textContent = current + (el.dataset.countSuffix || "");
-            }
-          }, 30);
-          observer.unobserve(el);
-        });
-      },
-      { threshold: 0.5 }
-    );
-    counters.forEach((el) => observer.observe(el));
-  }
 });

@@ -86,10 +86,6 @@ const i18n = (() => {
         .join("");
     });
 
-    // Update typewriter source if it exists
-    if (window._typewriter) {
-      window._typewriter.updateRoles(t(lang, "hero_roles").split("|"));
-    }
   }
 
   // Switch language and persist
