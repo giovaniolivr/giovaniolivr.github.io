@@ -19,11 +19,11 @@ const translations = {
 
     // ── Hero ─────────────────────────────────────────────────────────────────
     hero_greeting: "Hello, I'm",
-    hero_tagline: "Software development student from São Paulo, Brazil — passionate about backend development, open source, and building things that matter.",
+    hero_tagline: "Software development student from São Paulo, Brazil, building AI and machine learning applications in Python — from statistical forecasting with honest uncertainty to LLM-powered RAG systems — on a solid backend foundation.",
     hero_cta_projects: "View Projects",
     hero_cta_contact: "Get in Touch",
     hero_cta_resume: "Resume",
-    hero_role: "Backend Developer · Software Student",
+    hero_role: "AI & Machine Learning Developer",
 
     // ── About ────────────────────────────────────────────────────────────────
     about_section_title: "About Me",
@@ -158,11 +158,11 @@ const translations = {
 
     // ── Hero ─────────────────────────────────────────────────────────────────
     hero_greeting: "Olá, eu sou",
-    hero_tagline: "Estudante de desenvolvimento de software em São Paulo, Brasil — apaixonado por desenvolvimento backend, código aberto e por construir coisas que importam.",
+    hero_tagline: "Estudante de desenvolvimento de software em São Paulo, construindo aplicações de IA e Machine Learning em Python — de previsão estatística com incerteza honesta a sistemas RAG com LLMs — sobre uma base sólida de backend.",
     hero_cta_projects: "Ver Projetos",
     hero_cta_contact: "Entrar em Contato",
     hero_cta_resume: "Currículo",
-    hero_role: "Desenvolvedor Backend · Estudante de Software",
+    hero_role: "Desenvolvedor de IA & Machine Learning",
 
     // ── About ────────────────────────────────────────────────────────────────
     about_section_title: "Sobre Mim",
