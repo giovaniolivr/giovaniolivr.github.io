@@ -39,7 +39,8 @@ portfolio/
     ├── Homepage_w8t.png        # W8T dashboard screenshot (featured card)
     ├── home_wiki.png           # Desktop Wiki
     ├── homepage.png            # Scout
-    └── resume.pdf
+    ├── resume-giovani-oliveira.pdf    # EN resume
+    └── curriculo-giovani-oliveira.pdf # PT-BR resume (same content, translated)
 ```
 
 ## Sections
@@ -59,6 +60,7 @@ portfolio/
 - Browser language is auto-detected on first visit
 - Language switcher button in the navbar toggles between EN and PT-BR
 - `i18n.js` exports `applyTranslations()` called on DOMContentLoaded and on toggle
+- `data-i18n-href="resume_href"` swaps the resume link: EN → `resume-giovani-oliveira.pdf`, PT → `curriculo-giovani-oliveira.pdf`
 
 ## Adding a New Project
 In `assets/js/translations.js`, add keys for both `en` and `pt` (see the `w8t_*` block).

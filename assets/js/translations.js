@@ -23,6 +23,7 @@ const translations = {
     hero_cta_projects: "View Projects",
     hero_cta_contact: "Get in Touch",
     hero_cta_resume: "Resume",
+    resume_href: "static/resume-giovani-oliveira.pdf",
     hero_role: "AI & Machine Learning Developer",
 
     // ── About ────────────────────────────────────────────────────────────────
@@ -162,6 +163,7 @@ const translations = {
     hero_cta_projects: "Ver Projetos",
     hero_cta_contact: "Entrar em Contato",
     hero_cta_resume: "Currículo",
+    resume_href: "static/curriculo-giovani-oliveira.pdf",
     hero_role: "Desenvolvedor de IA & Machine Learning",
 
     // ── About ────────────────────────────────────────────────────────────────

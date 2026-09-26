@@ -7,6 +7,7 @@
  *   Elements use data-i18n-placeholder="key" for input placeholders.
  *   Elements use data-i18n-aria="key" for aria-label.
  *   Elements use data-i18n-title="key" for title attribute.
+ *   Elements use data-i18n-href="key" for href attribute (e.g. per-language resume PDF).
  *
  * Language is stored in localStorage under the key "lang".
  * Supported values: "en" | "pt"
@@ -71,6 +72,12 @@ const i18n = (() => {
     document.querySelectorAll("[data-i18n-title]").forEach((el) => {
       const key = el.dataset.i18nTitle;
       el.title = t(lang, key);
+    });
+
+    // data-i18n-href → href attribute
+    document.querySelectorAll("[data-i18n-href]").forEach((el) => {
+      const key = el.dataset.i18nHref;
+      el.setAttribute("href", t(lang, key));
     });
 
     // Re-render tag lists (data-i18n-tags) — pipe-separated values
