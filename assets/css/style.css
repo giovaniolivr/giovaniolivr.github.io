@@ -198,6 +198,8 @@ section { padding: 80px 0; scroll-margin-top: 64px; }
   border-radius: var(--r-xl); padding: 24px;
 }
 @media (max-width: 767px) { .card { padding: 24px; } }
+/* second row inside a card (e.g. "already working" / "working on now"), split by a hairline */
+.card-split { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--hairline-soft); }
 
 /* card-promo-strip: dark full-width card (featured project) */
 .promo-strip {

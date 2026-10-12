@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <!-- Tailwind CSS Play CDN — layout utilities only; the look lives in style.css -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="assets/css/style.css?v=20260925" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261012" />
 </head>
 
 <body>
@@ -218,6 +218,49 @@
             <div class="shot">
               <img src="static/home_wiki.png?v=2" alt="Desktop Wiki home page: topic cards, red sidebar and the AI assistant panel" loading="lazy" />
             </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── Moneta (work in progress) ─────────────────────────── -->
+      <article class="card mb-8" data-aos="fade-up" aria-labelledby="moneta-title">
+        <div class="grid lg:grid-cols-5 gap-10 items-center">
+          <div class="lg:col-span-2">
+            <span class="badge mb-5"><i class="fa-solid fa-person-digging" aria-hidden="true"></i><span data-i18n="moneta_badge">Work in Progress</span></span>
+            <h3 id="moneta-title" class="heading-sm mb-1" data-i18n="moneta_title">Moneta</h3>
+            <p class="subtitle-md text-steel mb-4" data-i18n="moneta_subtitle">Personal finance management & planning</p>
+            <p class="text-charcoal mb-6" data-i18n="moneta_desc">A personal finance app I'm building for my own daily use.</p>
+            <div class="flex flex-wrap gap-2 mb-8" data-i18n-tags="moneta_tag_tech"></div>
+            <a href="https://github.com/giovaniolivr/Moneta" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+              <span data-i18n="moneta_code">View Source</span>
+            </a>
+            <p class="caption text-steel mt-4" data-i18n="moneta_note">Not deployed: it holds my real financial data, so it only runs on my own machine.</p>
+          </div>
+          <div class="lg:col-span-3">
+            <div class="shot">
+              <img src="static/homepage_moneta.png" alt="Moneta dashboard (dark theme): total balance, income and expenses compared with the same days of the previous month, monthly plan and automatic insights" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="card-split grid md:grid-cols-2 gap-10">
+          <div>
+            <h4 class="subtitle-lg mb-4" data-i18n="moneta_done_title">Already working</h4>
+            <ul class="highlights body-sm text-charcoal">
+              <li data-i18n="moneta_d1"></li>
+              <li data-i18n="moneta_d2"></li>
+              <li data-i18n="moneta_d3"></li>
+              <li data-i18n="moneta_d4"></li>
+              <li data-i18n="moneta_d5"></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="subtitle-lg mb-4" data-i18n="moneta_now_title">Working on now</h4>
+            <ul class="highlights body-sm text-charcoal">
+              <li data-i18n="moneta_n1"></li>
+              <li data-i18n="moneta_n2"></li>
+              <li data-i18n="moneta_n3"></li>
+            </ul>
           </div>
         </div>
       </article>
@@ -488,7 +531,7 @@
   <!-- SCRIPTS (order matters: translations → i18n → AOS → main).
        ?v= on local CSS/JS: GitHub Pages caches them for 10 min, so after a deploy returning visitors
        got the new HTML with the old CSS/JS (broken page). Bump it whenever these files change. -->
-  <script src="assets/js/translations.js?v=20260927"></script>
+  <script src="assets/js/translations.js?v=20261012"></script>
   <script src="assets/js/i18n.js?v=20260926"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="assets/js/main.js?v=20260925"></script>

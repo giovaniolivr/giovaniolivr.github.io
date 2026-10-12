@@ -38,6 +38,7 @@ portfolio/
 └── static/                     # Images and files referenced by index.html
     ├── Homepage_w8t.png        # W8T dashboard screenshot (featured card)
     ├── home_wiki.png           # Desktop Wiki
+    ├── homepage_moneta.png     # Moneta (work in progress)
     ├── homepage.png            # Scout
     ├── resume-giovani-oliveira.pdf    # EN resume
     └── curriculo-giovani-oliveira.pdf # PT-BR resume (same content, translated)
@@ -47,7 +48,8 @@ portfolio/
 1. **Hero** — name, static role line, dual CTA (black pill + outlined pill), social icon buttons
 2. **About** — bio + info panel (location, education, languages, resume). No profile photo (removed 2026-09-25)
 3. **Projects** — **W8T** featured in a dark full-width `promo-strip` card; **Desktop Wiki** in a white
-   card; **Scout** demoted to a compact tile under "Other projects" (it is essentially a CRUD)
+   card; **Moneta** in a white card with a "Work in Progress" badge (site only — not on the PDF
+   resumes; no live demo because it holds real financial data); **Scout** demoted to a compact tile under "Other projects" (it is essentially a CRUD)
 4. **Experience** — rows (period | role, company, description, tags), newest first
 5. **Skills** — tiles; includes a Data & Machine Learning category (pandas, statsmodels, scikit-learn, ...)
 6. **Certifications** — TOEIC, Cisco, APIs in C#
