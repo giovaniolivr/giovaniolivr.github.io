@@ -62,7 +62,7 @@ const translations = {
 
     exp4_title: "Junior Premium Support Analyst",
     exp4_company: "Desktop",
-    exp4_period: "Jun 2026 – Sep 2026",
+    exp4_period: "Jun 2026 – Present",
     exp4_desc: "Specialized technical support at an Internet Service Provider (ISP), acting as a liaison between customers, field teams, and internal departments to ensure efficient incident resolution and service continuity.",
     exp4_tags: "Technical Support|Incident Management|ISP Operations",
 
@@ -220,7 +220,7 @@ const translations = {
 
     exp4_title: "Analista de Suporte Premium Júnior",
     exp4_company: "Desktop",
-    exp4_period: "Jun 2026 – Set 2026",
+    exp4_period: "Jun 2026 – Presente",
     exp4_desc: "Suporte técnico especializado em um provedor de internet (ISP), atuando como elo entre clientes, equipes de campo e departamentos internos para garantir a resolução eficiente de incidentes e a continuidade do serviço.",
     exp4_tags: "Suporte Técnico|Gestão de Incidentes|Operações de ISP",
 
