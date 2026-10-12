@@ -8,3 +8,6 @@ Thumbs.db
 
 # Portfolio-specific: keep the PDF out of the repo (optional — remove this line if you want it tracked)
 # Resume Giovani Oliveira.pdf
+
+# Python virtualenv (not used by the static site)
+venv/
