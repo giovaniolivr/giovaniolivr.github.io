@@ -24,7 +24,22 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <!-- Tailwind CSS Play CDN — layout utilities only; the look lives in style.css -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="assets/css/style.css?v=20261012" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261106" />
+  <link rel="stylesheet" href="assets/css/swarm.css?v=20261106g" />
+  <!-- Swarm intro gate (assets/js/swarm.js): decided here, before first paint, so the page never
+       flashes fully built and then turns into a ghost. Plays at most once every 10 min per browser;
+       ?build=1 forces it, ?build=0 disables it; reduced-motion / automated browsers never get it. -->
+  <script>
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search).get("build");
+        var last = +localStorage.getItem("swarmBuiltAt") || 0;
+        var go = q === "1" || (q !== "0" && !navigator.webdriver &&
+          !matchMedia("(prefers-reduced-motion: reduce)").matches && Date.now() - last > 10 * 60 * 1000);
+        if (go) document.documentElement.classList.add("swarm");
+      } catch (e) {}
+    })();
+  </script>
 </head>
 
 <body>
@@ -528,12 +543,13 @@
   </button>
 
 
-  <!-- SCRIPTS (order matters: translations → i18n → AOS → main).
+  <!-- SCRIPTS (order matters: translations → i18n → AOS → swarm → main; swarm strips data-aos before AOS.init).
        ?v= on local CSS/JS: GitHub Pages caches them for 10 min, so after a deploy returning visitors
        got the new HTML with the old CSS/JS (broken page). Bump it whenever these files change. -->
-  <script src="assets/js/translations.js?v=20261012b"></script>
+  <script src="assets/js/translations.js?v=20261106b"></script>
   <script src="assets/js/i18n.js?v=20260926"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/swarm.js?v=20261106g"></script>
   <script src="assets/js/main.js?v=20260925"></script>
   <script>i18n.init();</script>
 

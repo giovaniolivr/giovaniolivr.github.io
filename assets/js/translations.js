@@ -161,6 +161,12 @@ const translations = {
     footer_built: "Built with",
     footer_and: "and",
     footer_coffee: "lots of coffee",
+
+    // ── Swarm intro (swarm.js) ──────────────────────────────────────────────
+    swarm_building: "Agents building this page",
+    swarm_done: "Built by {n} agents",
+    swarm_skip: "Skip",
+    swarm_replay: "Watch it build",
   },
 
   pt: {
@@ -319,5 +325,11 @@ const translations = {
     footer_built: "Feito com",
     footer_and: "e",
     footer_coffee: "muito café",
+
+    // ── Swarm intro (swarm.js) ──────────────────────────────────────────────
+    swarm_building: "Agentes montando a página",
+    swarm_done: "Montado por {n} agentes",
+    swarm_skip: "Pular",
+    swarm_replay: "Ver a montagem",
   },
 };

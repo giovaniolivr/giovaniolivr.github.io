@@ -30,10 +30,13 @@ portfolio/
 ├── DESIGN.md                   # Visual language (Meta template from getdesign.md) — read before any UI change
 ├── CLAUDE.md                   # This file
 ├── assets/
-│   ├── css/style.css           # Design tokens (named as in DESIGN.md) + components
+│   ├── css/
+│   │   ├── style.css           # Design tokens (named as in DESIGN.md) + components
+│   │   └── swarm.css           # "Page builds itself" intro (cursors, guides, HUD)
 │   └── js/
 │       ├── translations.js     # i18n data (EN + PT-BR inline)
 │       ├── i18n.js             # i18n engine (language switching)
+│       ├── swarm.js            # "Page builds itself" intro engine
 │       └── main.js             # AOS, active nav pill, mobile menu, scroll-to-top
 └── static/                     # Images and files referenced by index.html
     ├── Homepage_w8t.png        # W8T dashboard screenshot (featured card)
@@ -69,6 +72,16 @@ In `assets/js/translations.js`, add keys for both `en` and `pt` (see the `w8t_*`
 In `index.html`, use `.card` (white, hairline border) for a regular project or a `.tile` under
 "Other projects" for a minor one. Screenshots go in `static/` inside a `.shot` frame.
 
+## Swarm intro ("the page builds itself")
+`swarm.js` + `swarm.css`: 7 coloured cursor "agents" build the already-rendered page as it scrolls
+into view. Layout/Grid drag selection boxes (W × H + guides) for panels, Copy/Type/Editor type the
+text line by line (including text inside panels), Media carries screenshots in from off-screen, QA helps anywhere.
+- Gate script in `<head>` adds `html.swarm` before first paint; unbuilt elements are `opacity: 0`.
+- Plays at most once per 10 min **per browser** (`localStorage` `swarmBuiltAt`); `?build=1` forces it,
+  `?build=0` disables it; reduced-motion and automated browsers never get it. Footer link "Watch it build" replays.
+- Targets: `TARGETS` in swarm.js **and** the selector list in swarm.css must stay in sync.
+- Pacing: `BASE_SPEED` at the top of swarm.js. AOS is disabled on visits where the swarm runs.
+
 ## Running Locally
 Just open `index.html` in a browser. No build step required.
 
@@ -102,3 +115,4 @@ so it was copied from the package tarball). Key rules applied:
 - Phase 1 ✅ Portfolio site built
 - Phase 2 ✅ Scout deployed (Render)
 - Phase 3 ✅ Redesign with DESIGN.md (Meta), W8T as the featured project (2026-09-25)
+- Phase 4 ✅ Swarm intro: agents build the page live (2026-11-06)
