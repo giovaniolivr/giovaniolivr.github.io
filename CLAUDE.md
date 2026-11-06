@@ -72,8 +72,9 @@ In `index.html`, use `.card` (white, hairline border) for a regular project or a
 
 ## Intro: buildcursors ("the page builds itself")
 The intro is the **buildcursors** library (own open-source repo: github.com/giovaniolivr/buildcursors,
-local clone at `../buildcursors`), loaded from jsDelivr `@1` in `<head>`. Library changes go there
-(tag a new `v1.x.y` so `@1` picks it up), not in this repo.
+local clone at `../buildcursors`), loaded from jsDelivr in `<head>`, **pinned to an exact version**
+(`@1.1.0`). Library changes go there, not in this repo: tag a new `v1.x.y`, then bump the version in
+the URL here. Don't use `@1`: jsDelivr tells browsers to cache it for 7 days, so visitors kept the old copy.
 - Portfolio-specific config is `window.buildcursorsConfig` in `<head>` of `index.html`: `targets`
   (which panels get built), `text` (which are typed), `keep` (`.tech-tag`/buttons arrive with
   their panel) and `onStart` (strips `data-aos` so AOS doesn't fight the reveal).
