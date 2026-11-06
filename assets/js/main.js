@@ -131,6 +131,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ── "Watch it build" link (buildcursors intro) ───────────────────────────
+  // Created here rather than with buildcursors' replayLink option so i18n translates it.
+  const footerP = document.querySelector("footer .container > p");
+  if (footerP && window.buildcursors) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "bc-replay";
+    btn.dataset.i18n = "swarm_replay";
+    btn.textContent = i18n.t(i18n.getCurrentLang(), "swarm_replay");
+    btn.addEventListener("click", () => window.buildcursors.replay());
+    footerP.append(" · ", btn);
+  }
+
   // ── Year in footer ────────────────────────────────────────────────────────
   const yearEl = document.getElementById("current-year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();

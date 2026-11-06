@@ -31,12 +31,10 @@ portfolio/
 ├── CLAUDE.md                   # This file
 ├── assets/
 │   ├── css/
-│   │   ├── style.css           # Design tokens (named as in DESIGN.md) + components
-│   │   └── swarm.css           # "Page builds itself" intro (cursors, guides, HUD)
+│   │   └── style.css           # Design tokens (named as in DESIGN.md) + components
 │   └── js/
 │       ├── translations.js     # i18n data (EN + PT-BR inline)
 │       ├── i18n.js             # i18n engine (language switching)
-│       ├── swarm.js            # "Page builds itself" intro engine
 │       └── main.js             # AOS, active nav pill, mobile menu, scroll-to-top
 └── static/                     # Images and files referenced by index.html
     ├── Homepage_w8t.png        # W8T dashboard screenshot (featured card)
@@ -72,18 +70,17 @@ In `assets/js/translations.js`, add keys for both `en` and `pt` (see the `w8t_*`
 In `index.html`, use `.card` (white, hairline border) for a regular project or a `.tile` under
 "Other projects" for a minor one. Screenshots go in `static/` inside a `.shot` frame.
 
-## Swarm intro ("the page builds itself")
-`swarm.js` + `swarm.css`: 7 coloured cursor "agents" build the already-rendered page as it scrolls
-into view. Layout/Grid drag selection boxes (W × H + guides) for panels, Copy/Type/Editor type the
-text line by line (including text inside panels), Media carries screenshots in from off-screen, QA helps anywhere.
-- Gate script in `<head>` adds `html.swarm` before first paint; unbuilt elements are `opacity: 0`.
-- Plays at most once per 10 min **per browser** (`localStorage` `swarmBuiltAt`); `?build=1` forces it,
-  `?build=0` disables it; reduced-motion and automated browsers never get it. Footer link "Watch it build" replays.
-- Targets: `TARGETS` in swarm.js **and** the selector list in swarm.css must stay in sync.
-- Pacing: `BASE_SPEED` at the top of swarm.js. AOS is disabled on visits where the swarm runs.
-- No HUD/status text: only the cursors. Idle cursors retreat off the right edge and come back
-  when work appears; when everything is built they line up in a column on the right, hop once and leave.
-  Esc skips. Phones (≤640px) get a 4-agent crew (`MOBILE_CREW`).
+## Intro: buildcursors ("the page builds itself")
+The intro is the **buildcursors** library (own open-source repo: github.com/giovaniolivr/buildcursors,
+local clone at `../buildcursors`), loaded from jsDelivr `@1` in `<head>`. Library changes go there
+(tag a new `v1.x.y` so `@1` picks it up), not in this repo.
+- Portfolio-specific config is `window.buildcursorsConfig` in `<head>` of `index.html`: `targets`
+  (which panels get built), `text` (which are typed), `keep` (`.tech-tag`/buttons arrive with
+  their panel) and `onStart` (strips `data-aos` so AOS doesn't fight the reveal).
+- Must stay in `<head>` without `defer`: it hides unbuilt parts before first paint.
+- Defaults used: once per 10 min per browser, `?build=1` forces, `?build=0` disables, reduced-motion
+  and automated browsers never get it, Esc skips, 4-agent crew on phones.
+- Footer "Watch it build" link is created in `main.js` (so i18n translates it) and calls `buildcursors.replay()`.
 
 ## Dark mode
 - `html[data-theme="light|dark"]`, set by a gate script in `<head>` before first paint: saved choice
@@ -131,3 +128,4 @@ so it was copied from the package tarball). Key rules applied:
 - Phase 2 ✅ Scout deployed (Render)
 - Phase 3 ✅ Redesign with DESIGN.md (Meta), W8T as the featured project (2026-09-25)
 - Phase 4 ✅ Swarm intro: agents build the page live (2026-11-06)
+- Phase 5 ✅ Dark mode + mobile pass; intro extracted to the open-source buildcursors library (2026-11-06)

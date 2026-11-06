@@ -316,6 +316,7 @@ section { padding: 80px 0; scroll-margin-top: 64px; }
 
 /* ── Footer ───────────────────────────────────────────────────── */
 footer { border-top: 1px solid var(--hairline-soft); padding: 32px 0; }
+footer .bc-replay:hover { color: var(--ink-deep); }  /* "Watch it build" (base style comes from buildcursors) */
 
 /* ── Scroll to top ────────────────────────────────────────────── */
 #scroll-top {
