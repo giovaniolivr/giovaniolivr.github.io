@@ -19,7 +19,7 @@ const translations = {
 
     // ── Hero ─────────────────────────────────────────────────────────────────
     hero_greeting: "Hello, I'm",
-    hero_tagline: "Software development student from São Paulo, Brazil, building AI and machine learning applications in Python — from statistical forecasting with honest uncertainty to LLM-powered RAG systems — on a solid backend foundation.",
+    hero_tagline: "Software development student from São Paulo, Brazil, building AI and machine learning applications in Python on a solid backend foundation. My work ranges from statistical forecasting with honest uncertainty to LLM-powered RAG systems.",
     hero_cta_projects: "View Projects",
     hero_cta_contact: "Get in Touch",
     hero_cta_resume: "Resume",
@@ -30,10 +30,10 @@ const translations = {
     about_section_title: "About Me",
     about_section_subtitle: "A little background",
     about_p1: "I'm a 24-year-old Software Analysis and Development student at FATEC São Paulo, with hands-on experience in backend development using Django, .NET, and various databases.",
-    about_p2: "I've worked as a freelance backend developer, an AI trainer for Brazilian Portuguese at Outlier, and a data annotator at e2f — building both technical depth and a strong work ethic along the way.",
+    about_p2: "I've worked as a freelance backend developer, as an AI trainer for Brazilian Portuguese at Outlier, and as a data annotator at e2f. These roles gave me technical depth and a strong work ethic.",
     about_p3: "Outside of work, I'm interested in cybersecurity, artificial intelligence, game development, and contributing to open source projects.",
     about_location: "São Paulo, Brazil",
-    about_education: "FATEC — Software Analysis & Development",
+    about_education: "Software Analysis & Development at FATEC",
     about_education_period: "Aug 2023 – Present",
     about_languages_spoken: "Portuguese (Native) · English (Proficient)",
     about_download_resume: "Download Resume",
@@ -48,13 +48,13 @@ const translations = {
     exp1_desc: "Developed small-to-medium web solutions for clients using .NET, Django REST API, SQL Server, MySQL, and Docker. Handled full backend lifecycle from database design to API deployment.",
     exp1_tags: ".NET|Django REST|MySQL|SQL Server|Docker",
 
-    exp2_title: "AI Trainer — Brazilian Portuguese",
+    exp2_title: "AI Trainer (Brazilian Portuguese)",
     exp2_company: "Outlier",
     exp2_period: "Jun 2024 – Jun 2025",
     exp2_desc: "Specialized in training and optimizing AI language models for Brazilian Portuguese, focusing on text and image processing tasks. Evaluated model outputs and provided structured feedback.",
     exp2_tags: "AI Training|NLP|Brazilian Portuguese|Text Processing",
 
-    exp3_title: "Annotator — Brazilian Portuguese",
+    exp3_title: "Annotator (Brazilian Portuguese)",
     exp3_company: "e2f",
     exp3_period: "Oct 2024 – Aug 2025",
     exp3_desc: "Specialized in data annotation and optimization of AI models in Brazilian Portuguese, focusing on text and video content. Ensured high-quality labeled datasets for model training.",
@@ -82,11 +82,11 @@ const translations = {
     w8t_badge: "Featured Project",
     w8t_title: "W8T",
     w8t_subtitle: "Weight tracking with statistics & machine learning",
-    w8t_desc: "A study project in time-series statistics: daily weigh-ins become trend, plateau and anomaly detection, forecasts with honest uncertainty, and a plain-language summary — built and evaluated like a real ML system, on classical models suited to small personal data.",
-    w8t_h1: "7 forecasting models (damped Holt, Kalman filter, Gaussian Process, ensemble), always with 95% intervals — the recommended ensemble held ~95% coverage across 30 synthetic series.",
-    w8t_h2: "Walk-forward backtesting with Diebold–Mariano tests: no model is called better without statistical evidence.",
+    w8t_desc: "A study project in time-series statistics: daily weigh-ins become trend, plateau and anomaly detection, forecasts with honest uncertainty, and a plain-language summary. It was built and evaluated like a real ML system, using classical models suited to small personal datasets.",
+    w8t_h1: "7 forecasting models (damped Holt, Kalman filter, Gaussian Process, ensemble), always with 95% intervals. The recommended ensemble held ~95% coverage across 30 synthetic series.",
+    w8t_h2: "Walk-forward backtesting with Diebold-Mariano tests: no model is called better without statistical evidence.",
     w8t_h3: "Kalman-based detectors for trend, plateaus and outliers: 12× fewer false anomaly alarms than a simpler statistical reference method; gap reconstruction with uncertainty.",
-    w8t_h4: "An LLM (Gemini) that only narrates numbers already computed — every number in the text is checked against them, and any mismatch is flagged.",
+    w8t_h4: "An LLM (Gemini) that only narrates numbers already computed. Every number in the text is checked against the source values, and any mismatch is flagged.",
     w8t_tag_tech: "Python|statsmodels|scikit-learn|pandas|Streamlit|Plotly|SQLAlchemy|PostgreSQL|Gemini API",
     w8t_live: "Live Demo",
     w8t_code: "View Source",
@@ -104,7 +104,7 @@ const translations = {
     wiki_badge: "Company Project",
     wiki_title: "Desktop Wiki",
     wiki_subtitle: "Internal Knowledge Base Platform",
-    wiki_desc: "Internal knowledge base for a customer-support team, redesigned end to end. Three-level topic navigation, rich content blocks (text, images, video, checklists), glossary tooltips and instant search. An AI assistant answers questions with RAG over the wiki's own content — embeddings plus keyword boosting, with screenshots auto-described by a vision model — and points to its sources. Also hosts browser-only tools, like a ticket-script generator whose customer data never leaves the browser. Django on Render, with PostgreSQL and Cloudflare R2.",
+    wiki_desc: "Internal knowledge base for a customer-support team, redesigned end to end. Three-level topic navigation, rich content blocks (text, images, video, checklists), glossary tooltips and instant search. An AI assistant answers questions with RAG over the wiki's own content, combining embeddings with keyword boosting, and points to its sources. Screenshots are described automatically by a vision model, so they can be found too. The wiki also hosts browser-only tools, like a ticket-script generator whose customer data never leaves the browser. Django on Render, with PostgreSQL and Cloudflare R2.",
     wiki_tag_tech: "Django|Python|PostgreSQL|Tailwind CSS|RAG|Cloudflare Workers AI|Cloudflare R2",
     wiki_live: "Live Demo",
     wiki_code: "View Source",
@@ -113,7 +113,7 @@ const translations = {
     moneta_badge: "Work in Progress",
     moneta_title: "Moneta",
     moneta_subtitle: "Personal finance management & planning",
-    moneta_desc: "A personal finance app I'm building for my own daily use: accounts, income and expenses, budgets, recurring bills, installments, goals and investments in one place. The aim goes beyond recording the past — it should answer \"can I afford this, and what's the best way to pay for it?\", and every automatic analysis shows the numbers behind it.",
+    moneta_desc: "A personal finance app I'm building for my own daily use: accounts, income and expenses, budgets, recurring bills, installments, goals and investments in one place. The goal goes beyond recording the past: it should answer \"can I afford this, and what's the best way to pay for it?\", and every automatic analysis shows the numbers behind it.",
     moneta_tag_tech: "Python|Django|HTMX|SQLite|pytest|mypy",
     moneta_code: "View Source",
     moneta_note: "Not deployed: it holds my real financial data, so it only runs on my own machine.",
@@ -126,7 +126,7 @@ const translations = {
     moneta_now_title: "Working on now",
     moneta_n1: "Moving to real daily use: installable PWA, private access from my phone over Tailscale, and scheduled backups.",
     moneta_n2: "Interface polish: hover states and subtle motion that respect reduced-motion preferences.",
-    moneta_n3: "Wishlist price tracking through the official Mercado Livre API — no scraping.",
+    moneta_n3: "Wishlist price tracking through the official Mercado Livre API, without scraping.",
 
     // ── Certifications ────────────────────────────────────────────────────────
     certs_section_title: "Certifications",
@@ -135,7 +135,7 @@ const translations = {
     cert1_name: "Test of English for International Communication (TOEIC)",
     cert1_org: "ETS",
     cert1_date: "October 2023",
-    cert1_desc: "CEFR language certification with a score of 915/990 — C1 level proficiency in English.",
+    cert1_desc: "CEFR language certification with a score of 915/990, equivalent to C1 proficiency in English.",
 
     cert2_name: "Cybersecurity Essentials",
     cert2_org: "Cisco",
@@ -150,7 +150,7 @@ const translations = {
     // ── Contact ───────────────────────────────────────────────────────────────
     contact_section_title: "Get in Touch",
     contact_section_subtitle: "Let's connect",
-    contact_desc: "I'm open to job opportunities, freelance projects, and interesting collaborations. Whether you have a question or just want to say hi — my inbox is always open.",
+    contact_desc: "I'm open to job opportunities, freelance projects and interesting collaborations. If you have a question or just want to say hi, feel free to reach out.",
     contact_email_label: "Send an Email",
     contact_phone_label: "WhatsApp / Phone",
     contact_github_label: "GitHub Profile",
@@ -162,10 +162,9 @@ const translations = {
     footer_and: "and",
     footer_coffee: "lots of coffee",
 
+    theme_toggle_aria: "Toggle dark mode",
+
     // ── Swarm intro (swarm.js) ──────────────────────────────────────────────
-    swarm_building: "Agents building this page",
-    swarm_done: "Built by {n} agents",
-    swarm_skip: "Skip",
     swarm_replay: "Watch it build",
   },
 
@@ -183,7 +182,7 @@ const translations = {
 
     // ── Hero ─────────────────────────────────────────────────────────────────
     hero_greeting: "Olá, eu sou",
-    hero_tagline: "Estudante de desenvolvimento de software em São Paulo, construindo aplicações de IA e Machine Learning em Python — de previsão estatística com incerteza honesta a sistemas RAG com LLMs — sobre uma base sólida de backend.",
+    hero_tagline: "Estudante de desenvolvimento de software em São Paulo, construindo aplicações de IA e Machine Learning em Python sobre uma base sólida de backend. Meus projetos vão de previsão estatística com incerteza honesta a sistemas RAG com LLMs.",
     hero_cta_projects: "Ver Projetos",
     hero_cta_contact: "Entrar em Contato",
     hero_cta_resume: "Currículo",
@@ -194,10 +193,10 @@ const translations = {
     about_section_title: "Sobre Mim",
     about_section_subtitle: "Um pouco sobre minha trajetória",
     about_p1: "Tenho 24 anos e sou estudante de Análise e Desenvolvimento de Sistemas na FATEC São Paulo, com experiência prática em desenvolvimento backend utilizando Django, .NET e diversas tecnologias de banco de dados.",
-    about_p2: "Trabalhei como desenvolvedor backend freelancer, treinador de IA para o português brasileiro na Outlier, e anotador de dados na e2f — construindo profundidade técnica e uma forte ética de trabalho ao longo do caminho.",
+    about_p2: "Trabalhei como desenvolvedor backend freelancer, como treinador de IA para o português brasileiro na Outlier e como anotador de dados na e2f. Essas experiências me deram profundidade técnica e uma forte ética de trabalho.",
     about_p3: "Fora do trabalho, me interesso por segurança cibernética, inteligência artificial, desenvolvimento de jogos e contribuição com projetos de código aberto.",
     about_location: "São Paulo, Brasil",
-    about_education: "FATEC — Análise e Desenvolvimento de Sistemas",
+    about_education: "Análise e Desenvolvimento de Sistemas na FATEC",
     about_education_period: "Ago 2023 – Presente",
     about_languages_spoken: "Português (Nativo) · Inglês (Proficiente)",
     about_download_resume: "Baixar Currículo",
@@ -212,13 +211,13 @@ const translations = {
     exp1_desc: "Desenvolvi soluções web de pequeno a médio porte para clientes utilizando .NET, Django REST API, SQL Server, MySQL e Docker. Responsável por todo o ciclo de backend, desde o design do banco de dados até o deploy das APIs.",
     exp1_tags: ".NET|Django REST|MySQL|SQL Server|Docker",
 
-    exp2_title: "Treinador de IA — Português Brasileiro",
+    exp2_title: "Treinador de IA (Português Brasileiro)",
     exp2_company: "Outlier",
     exp2_period: "Jun 2024 – Jun 2025",
     exp2_desc: "Especializado no treinamento e otimização de modelos de linguagem de IA para o português brasileiro, com foco em processamento de texto e imagens. Avaliei saídas dos modelos e forneci feedback estruturado.",
     exp2_tags: "Treinamento de IA|NLP|Português Brasileiro|Processamento de Texto",
 
-    exp3_title: "Anotador — Português Brasileiro",
+    exp3_title: "Anotador (Português Brasileiro)",
     exp3_company: "e2f",
     exp3_period: "Out 2024 – Ago 2025",
     exp3_desc: "Especializado em anotação de dados e otimização de modelos de IA em português brasileiro, com foco em conteúdo de texto e vídeo. Garantia da qualidade de conjuntos de dados rotulados para treinamento de modelos.",
@@ -246,11 +245,11 @@ const translations = {
     w8t_badge: "Projeto em Destaque",
     w8t_title: "W8T",
     w8t_subtitle: "Acompanhamento de peso com estatística & machine learning",
-    w8t_desc: "Projeto de estudo em estatística de séries temporais: pesagens diárias viram detecção de tendência, platô e anomalia, previsões com incerteza honesta e um resumo em linguagem natural — construído e avaliado como um sistema de ML de verdade, com modelos clássicos adequados a poucos dados pessoais.",
-    w8t_h1: "7 modelos de previsão (Holt amortecido, filtro de Kalman, Processo Gaussiano, combinação), sempre com intervalo de 95% — a combinação recomendada manteve ~95% de cobertura em 30 séries sintéticas.",
-    w8t_h2: "Backtesting walk-forward com teste de Diebold–Mariano: nenhum modelo é declarado melhor sem evidência estatística.",
+    w8t_desc: "Projeto de estudo em estatística de séries temporais: pesagens diárias viram detecção de tendência, platô e anomalia, previsões com incerteza honesta e um resumo em linguagem natural. Foi construído e avaliado como um sistema de ML de verdade, com modelos clássicos adequados a poucos dados pessoais.",
+    w8t_h1: "7 modelos de previsão (Holt amortecido, filtro de Kalman, Processo Gaussiano, combinação), sempre com intervalo de 95%. A combinação recomendada manteve ~95% de cobertura em 30 séries sintéticas.",
+    w8t_h2: "Backtesting walk-forward com teste de Diebold-Mariano: nenhum modelo é declarado melhor sem evidência estatística.",
     w8t_h3: "Detectores baseados em Kalman para tendência, platôs e medições atípicas: 12× menos alarmes falsos de anomalia que um método estatístico mais simples usado como referência; reconstrução de lacunas com incerteza.",
-    w8t_h4: "Um LLM (Gemini) que só narra números já calculados — cada número do texto é conferido com eles, e qualquer divergência é sinalizada.",
+    w8t_h4: "Um LLM (Gemini) que só narra números já calculados. Cada número do texto é conferido com os valores de origem, e qualquer divergência é sinalizada.",
     w8t_tag_tech: "Python|statsmodels|scikit-learn|pandas|Streamlit|Plotly|SQLAlchemy|PostgreSQL|Gemini API",
     w8t_live: "Demo ao Vivo",
     w8t_code: "Ver Código",
@@ -268,7 +267,7 @@ const translations = {
     wiki_badge: "Projeto Corporativo",
     wiki_title: "Desktop Wiki",
     wiki_subtitle: "Plataforma Interna de Base de Conhecimento",
-    wiki_desc: "Base de conhecimento interna de uma equipe de suporte, redesenhada de ponta a ponta. Navegação em três níveis, blocos de conteúdo (texto, imagens, vídeo, checklists), tooltips de glossário e busca instantânea. Um assistente de IA responde perguntas com RAG sobre o próprio conteúdo da wiki — embeddings mais reforço por palavra-chave, com prints descritos automaticamente por um modelo de visão — e indica as fontes. Também reúne ferramentas que rodam só no navegador, como um gerador de script de chamado cujos dados de cliente nunca saem do navegador. Django no Render, com PostgreSQL e Cloudflare R2.",
+    wiki_desc: "Base de conhecimento interna de uma equipe de suporte, redesenhada de ponta a ponta. Navegação em três níveis, blocos de conteúdo (texto, imagens, vídeo, checklists), tooltips de glossário e busca instantânea. Um assistente de IA responde perguntas com RAG sobre o próprio conteúdo da wiki, combinando embeddings com reforço por palavra-chave, e indica as fontes. Os prints são descritos automaticamente por um modelo de visão, então também entram na busca. A wiki ainda reúne ferramentas que rodam só no navegador, como um gerador de script de chamado cujos dados de cliente nunca saem do navegador. Django no Render, com PostgreSQL e Cloudflare R2.",
     wiki_tag_tech: "Django|Python|PostgreSQL|Tailwind CSS|RAG|Cloudflare Workers AI|Cloudflare R2",
     wiki_live: "Demo ao Vivo",
     wiki_code: "Ver Código",
@@ -277,7 +276,7 @@ const translations = {
     moneta_badge: "Em Desenvolvimento",
     moneta_title: "Moneta",
     moneta_subtitle: "Gestão e planejamento financeiro pessoal",
-    moneta_desc: "Um app de finanças pessoais que estou construindo para o meu próprio dia a dia: contas, receitas e despesas, orçamentos, contas recorrentes, parcelamentos, metas e investimentos em um só lugar. A ideia vai além de registrar o passado — ele deve responder \"dá para comprar isso, e qual a melhor forma de pagar?\", e toda análise automática mostra os números por trás dela.",
+    moneta_desc: "Um app de finanças pessoais que estou construindo para o meu próprio dia a dia: contas, receitas e despesas, orçamentos, contas recorrentes, parcelamentos, metas e investimentos em um só lugar. A ideia vai além de registrar o passado: ele deve responder \"dá para comprar isso, e qual a melhor forma de pagar?\", e toda análise automática mostra os números por trás dela.",
     moneta_tag_tech: "Python|Django|HTMX|SQLite|pytest|mypy",
     moneta_code: "Ver Código",
     moneta_note: "Sem deploy público: ele guarda meus dados financeiros reais, então roda só na minha máquina.",
@@ -290,7 +289,7 @@ const translations = {
     moneta_now_title: "Em andamento",
     moneta_n1: "Colocando em uso real no dia a dia: PWA instalável, acesso privado pelo celular via Tailscale e backups agendados.",
     moneta_n2: "Polimento da interface: estados de hover e animações sutis que respeitam a preferência por movimento reduzido.",
-    moneta_n3: "Acompanhamento de preços da lista de desejos pela API oficial do Mercado Livre — sem raspagem de sites.",
+    moneta_n3: "Acompanhamento de preços da lista de desejos pela API oficial do Mercado Livre, sem raspagem de sites.",
 
     // ── Certifications ────────────────────────────────────────────────────────
     certs_section_title: "Certificações",
@@ -299,7 +298,7 @@ const translations = {
     cert1_name: "Test of English for International Communication (TOEIC)",
     cert1_org: "ETS",
     cert1_date: "Outubro 2023",
-    cert1_desc: "Certificação de idioma CEFR com pontuação de 915/990 — proficiência de nível C1 em inglês.",
+    cert1_desc: "Certificação de idioma CEFR com pontuação de 915/990, equivalente ao nível C1 de proficiência em inglês.",
 
     cert2_name: "Fundamentos de Cibersegurança",
     cert2_org: "Cisco",
@@ -314,7 +313,7 @@ const translations = {
     // ── Contact ───────────────────────────────────────────────────────────────
     contact_section_title: "Entre em Contato",
     contact_section_subtitle: "Vamos conversar",
-    contact_desc: "Estou aberto a oportunidades de trabalho, projetos freelance e colaborações interessantes. Seja para uma pergunta ou apenas para dizer olá — minha caixa de entrada está sempre aberta.",
+    contact_desc: "Estou aberto a oportunidades de trabalho, projetos freelance e colaborações interessantes. Se tiver alguma pergunta ou só quiser dizer olá, fique à vontade para me chamar.",
     contact_email_label: "Enviar E-mail",
     contact_phone_label: "WhatsApp / Telefone",
     contact_github_label: "Perfil no GitHub",
@@ -326,10 +325,9 @@ const translations = {
     footer_and: "e",
     footer_coffee: "muito café",
 
+    theme_toggle_aria: "Alternar modo escuro",
+
     // ── Swarm intro (swarm.js) ──────────────────────────────────────────────
-    swarm_building: "Agentes montando a página",
-    swarm_done: "Montado por {n} agentes",
-    swarm_skip: "Pular",
     swarm_replay: "Ver a montagem",
   },
 };

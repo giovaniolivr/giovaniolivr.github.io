@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Giovani Oliveira — AI & Machine Learning Developer from São Paulo, Brazil. Python, LLMs, RAG and AI agents." />
+  <meta name="description" content="Giovani Oliveira, AI & Machine Learning Developer from São Paulo, Brazil. Python, LLMs, RAG and AI agents." />
   <meta name="author" content="Giovani Oliveira" />
-  <meta property="og:title" content="Giovani Oliveira — Portfolio" />
+  <meta property="og:title" content="Giovani Oliveira | Portfolio" />
   <meta property="og:description" content="AI & Machine Learning Developer from São Paulo, Brazil. Python, LLMs, RAG and AI agents." />
   <meta property="og:type" content="website" />
-  <title>Giovani Oliveira — Portfolio</title>
+  <title>Giovani Oliveira | Portfolio</title>
 
   <!-- Devicons (tech logos, used monochrome) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/devicon.min.css" />
@@ -24,12 +24,19 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <!-- Tailwind CSS Play CDN — layout utilities only; the look lives in style.css -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="assets/css/style.css?v=20261106" />
-  <link rel="stylesheet" href="assets/css/swarm.css?v=20261106g" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261106i" />
+  <link rel="stylesheet" href="assets/css/swarm.css?v=20261106h" />
   <!-- Swarm intro gate (assets/js/swarm.js): decided here, before first paint, so the page never
        flashes fully built and then turns into a ghost. Plays at most once every 10 min per browser;
        ?build=1 forces it, ?build=0 disables it; reduced-motion / automated browsers never get it. -->
   <script>
+    // Theme: saved choice, otherwise the system setting. Set before first paint (no light flash).
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
     (function () {
       try {
         var q = new URLSearchParams(location.search).get("build");
@@ -62,6 +69,10 @@
       </ul>
 
       <div class="flex items-center gap-2">
+        <button id="theme-toggle" class="btn-icon" type="button" data-i18n-aria="theme_toggle_aria" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+        </button>
         <button id="lang-toggle" data-i18n-aria="nav_lang_toggle_aria" aria-label="Switch language">EN</button>
         <button id="menu-btn" class="lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <span class="bar-top"></span>
@@ -101,7 +112,7 @@
           <li class="tech-tag">AI Agents</li>
         </ul>
         <p class="subtitle-md text-slate max-w-2xl mb-10" data-i18n="hero_tagline">
-          Software development student from São Paulo, Brazil — passionate about backend development, open source, and building things that matter.
+          Software development student from São Paulo, Brazil, building AI and machine learning applications in Python.
         </p>
 
         <div class="flex flex-wrap gap-3 mb-10">
@@ -147,7 +158,7 @@
           <div class="info-row">
             <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
             <span>
-              <span class="block" data-i18n="about_education">FATEC — Software Analysis & Development</span>
+              <span class="block" data-i18n="about_education">Software Analysis & Development at FATEC</span>
               <span class="body-sm text-steel" data-i18n="about_education_period">Aug 2023 – Present</span>
             </span>
           </div>
@@ -338,7 +349,7 @@
         <div class="exp-row">
           <p class="body-sm text-steel" data-i18n="exp3_period">Oct 2024 – Aug 2025</p>
           <div>
-            <h3 class="subtitle-lg" data-i18n="exp3_title">Annotator — Brazilian Portuguese</h3>
+            <h3 class="subtitle-lg" data-i18n="exp3_title">Annotator (Brazilian Portuguese)</h3>
             <p class="body-sm text-steel mb-3" data-i18n="exp3_company">e2f</p>
             <p class="text-charcoal mb-4" data-i18n="exp3_desc"></p>
             <div class="flex flex-wrap gap-2" data-i18n-tags="exp3_tags"></div>
@@ -347,7 +358,7 @@
         <div class="exp-row">
           <p class="body-sm text-steel" data-i18n="exp2_period">Jun 2024 – Jun 2025</p>
           <div>
-            <h3 class="subtitle-lg" data-i18n="exp2_title">AI Trainer — Brazilian Portuguese</h3>
+            <h3 class="subtitle-lg" data-i18n="exp2_title">AI Trainer (Brazilian Portuguese)</h3>
             <p class="body-sm text-steel mb-3" data-i18n="exp2_company">Outlier</p>
             <p class="text-charcoal mb-4" data-i18n="exp2_desc"></p>
             <div class="flex flex-wrap gap-2" data-i18n-tags="exp2_tags"></div>
@@ -479,7 +490,7 @@
   ════════════════════════════════════════════════════════════ -->
   <section id="contact" aria-label="Contact">
     <div class="container">
-      <div class="grid lg:grid-cols-5 gap-10">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-10">
         <div class="lg:col-span-2" data-aos="fade-up">
           <p class="section-label" data-i18n="contact_section_subtitle">Let's connect</p>
           <h2 class="heading-lg mb-4" data-i18n="contact_section_title">Get in Touch</h2>
@@ -546,11 +557,11 @@
   <!-- SCRIPTS (order matters: translations → i18n → AOS → swarm → main; swarm strips data-aos before AOS.init).
        ?v= on local CSS/JS: GitHub Pages caches them for 10 min, so after a deploy returning visitors
        got the new HTML with the old CSS/JS (broken page). Bump it whenever these files change. -->
-  <script src="assets/js/translations.js?v=20261106b"></script>
+  <script src="assets/js/translations.js?v=20261106h"></script>
   <script src="assets/js/i18n.js?v=20260926"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="assets/js/swarm.js?v=20261106g"></script>
-  <script src="assets/js/main.js?v=20260925"></script>
+  <script src="assets/js/swarm.js?v=20261106i"></script>
+  <script src="assets/js/main.js?v=20261106h"></script>
   <script>i18n.init();</script>
 
 </body>

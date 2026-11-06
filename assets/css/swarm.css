@@ -80,24 +80,6 @@ html.swarm img.sw-await { opacity: 0; }
 }
 @keyframes sw-ripple { from { transform: scale(.2); opacity: .9; } to { transform: scale(1.4); opacity: 0; } }
 
-/* HUD: small pill, bottom-left (scroll-top lives bottom-right). */
-#sw-hud {
-  position: fixed; left: 16px; bottom: 16px; z-index: 9995;
-  display: flex; align-items: center; gap: 10px;
-  padding: 6px 6px 6px 14px; border-radius: 100px;
-  background: var(--ink-button); color: #fff;
-  font-family: var(--font); font-size: 12px; font-weight: 500;
-  transition: opacity 400ms ease-out;
-}
-#sw-hud .sw-dots { display: flex; gap: 3px; }
-#sw-hud .sw-dots i { width: 7px; height: 7px; border-radius: 50%; display: block; }
-#sw-hud .sw-count { font-variant-numeric: tabular-nums; color: #b8c2cc; }
-#sw-hud button {
-  font: inherit; color: #fff; background: transparent; cursor: pointer;
-  border: 1px solid rgba(255,255,255,.35); border-radius: 100px; padding: 3px 12px;
-}
-#sw-hud button:hover { background: rgba(255,255,255,.12); }
-
 /* Footer link to watch it again (always present). */
 .sw-replay {
   font: inherit; color: inherit; background: none; border: 0; cursor: pointer;

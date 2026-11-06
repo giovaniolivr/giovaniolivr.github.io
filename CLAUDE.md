@@ -81,6 +81,21 @@ text line by line (including text inside panels), Media carries screenshots in f
   `?build=0` disables it; reduced-motion and automated browsers never get it. Footer link "Watch it build" replays.
 - Targets: `TARGETS` in swarm.js **and** the selector list in swarm.css must stay in sync.
 - Pacing: `BASE_SPEED` at the top of swarm.js. AOS is disabled on visits where the swarm runs.
+- No HUD/status text: only the cursors. Idle cursors slip off the nearest side edge and come back
+  when work appears; when everything is built they line up mid-screen, wave and leave together.
+  Esc skips. Phones (≤640px) get a 4-agent crew (`MOBILE_CREW`).
+
+## Dark mode
+- `html[data-theme="light|dark"]`, set by a gate script in `<head>` before first paint: saved choice
+  (`localStorage` `"theme"`), otherwise `prefers-color-scheme` (followed live until the visitor picks).
+- `:root[data-theme="dark"]` in style.css redefines the same tokens, so components need no dark
+  variants. Never hardcode `#fff`/`#000` for themed surfaces; use tokens.
+- Exception: the W8T `promo-strip` is dark in both themes (`--promo-bg`), so `.on-dark` rules use
+  fixed white/ink colours instead of `--canvas`/`--ink-deep`.
+
+## Writing style
+Site copy avoids em dashes (—): use commas, colons, parentheses or separate sentences.
+En dashes stay only in date ranges (Aug 2023 – Present).
 
 ## Running Locally
 Just open `index.html` in a browser. No build step required.

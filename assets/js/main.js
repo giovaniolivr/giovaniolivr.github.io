@@ -94,6 +94,43 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ── Dark mode ─────────────────────────────────────────────────────────────
+  // The initial theme is set by the gate script in <head> (before first paint).
+  const root = document.documentElement;
+  const themeBtn = document.getElementById("theme-toggle");
+  const syncThemeBtn = () => themeBtn && themeBtn.setAttribute("aria-pressed", root.dataset.theme === "dark");
+  const savedTheme = () => { try { return localStorage.getItem("theme"); } catch (e) { return null; } };
+
+  if (themeBtn) {
+    syncThemeBtn();
+    themeBtn.addEventListener("click", () => {
+      const next = root.dataset.theme === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      syncThemeBtn();
+    });
+  }
+  // Follow the system setting until the visitor picks a theme themselves.
+  const darkQuery = matchMedia("(prefers-color-scheme: dark)");
+  const onSystemTheme = (e) => {
+    if (savedTheme()) return;
+    root.dataset.theme = e.matches ? "dark" : "light";
+    syncThemeBtn();
+  };
+  if (darkQuery.addEventListener) darkQuery.addEventListener("change", onSystemTheme);
+
+  // Close the mobile menu with Esc or a tap outside it.
+  if (menuBtn && mobileMenu) {
+    const closeMenu = () => {
+      if (!mobileMenu.classList.contains("open")) return;
+      menuBtn.click();
+    };
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+    document.addEventListener("click", (e) => {
+      if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) closeMenu();
+    });
+  }
+
   // ── Year in footer ────────────────────────────────────────────────────────
   const yearEl = document.getElementById("current-year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();

@@ -5,6 +5,8 @@
  * <head>), unbuilt elements are invisible (space kept) and a few coloured cursors ("agents") build each
  * one as it scrolls into view: drag a selection box with W × H, show alignment guides, type the
  * text, click. Plays at most once every BUILD_EVERY_MS per browser (localStorage "swarmBuiltAt").
+ * Idle agents slip off-screen and come back when there's work; once everything is built they
+ * line up together, wave goodbye and leave. Esc skips the whole thing.
  *
  * URL overrides: ?build=1 forces it, ?build=0 disables it (the param is stripped from the URL).
  * prefers-reduced-motion and automated browsers always get the plain site.
@@ -40,6 +42,9 @@
     { name: "Editor", color: "#ec4899", role: "text" },
     { name: "QA", color: "#10b981", role: null },
   ];
+
+  // Phones get a smaller crew so the cursors don't cover the content.
+  const MOBILE_CREW = ["Layout", "Copy", "Media", "QA"];
 
   // Global animation speed (1 = the original pacing).
   const BASE_SPEED = 1.7;
@@ -84,10 +89,12 @@
   // ── Engine ─────────────────────────────────────────────────────────────────
   function run() {
     // queue: on-screen elements waiting to be built; imgs: screenshots waiting to be carried in.
-    const S = { stopped: false, stamped: false, queue: [], imgs: [], busy: 0, done: 0 };
+    const S = { stopped: false, stamped: false, queue: [], imgs: [], busy: 0 };
     const targets = Array.from(document.querySelectorAll(TARGETS));
-    let total = targets.length; // grows as blocks hand their inner text over to be typed
     const pending = new Set(targets);
+    const crew = matchMedia("(max-width: 640px)").matches
+      ? AGENTS.filter((d) => MOBILE_CREW.includes(d.name))
+      : AGENTS;
 
     const layer = div("", document.body);
     layer.id = "sw-layer";
@@ -114,7 +121,7 @@
     const wait = (ms) => tween(ms, () => {});
 
     // ── Agents ──
-    const agents = AGENTS.map((def, i) => {
+    const agents = crew.map((def, i) => {
       const el = div("sw-cursor", layer);
       el.innerHTML =
         `<svg viewBox="0 0 20 26"><path d="M2 2 L2 21 L7 16.5 L10.5 24 L13.5 22.7 L10.2 15.5 L17 15.5 Z" ` +
@@ -136,7 +143,7 @@
       const side = i % 4;
       const x = side === 0 ? -40 : side === 1 ? innerWidth + 40 : Math.random() * innerWidth;
       const y = side === 2 ? -40 : side === 3 ? innerHeight + 40 : Math.random() * innerHeight;
-      const a = { ...def, i, el, guides, box, dim, caret, x, y };
+      const a = { ...def, i, el, guides, box, dim, caret, x, y, away: true, idleSince: 0 };
       render(a);
       return a;
     });
@@ -183,8 +190,7 @@
       el.style.clipPath = "";
       el.classList.remove("sw-live", "sw-wait");
       el.classList.add("sw-done");
-      if (pending.delete(el)) S.done++;
-      updateHud();
+      pending.delete(el);
     }
 
     // Block: drag out a selection box with live W × H, then drop the element in.
@@ -201,7 +207,6 @@
         t.classList.add("sw-wait");
         pending.add(t);
       });
-      total += texts.length;
       await move(a, () => ({ x: R().left, y: R().top }));
       a.box.style.opacity = 1;
       let w = 0, h = 0;
@@ -358,7 +363,9 @@
     targets.forEach((t) => io.observe(t));
 
     // Safety net: a fast scroll can jump over an element without the observer ever seeing it
-    // on screen; anything already scrolled past and not being worked on just appears.
+    // on screen; anything already scrolled past and not being worked on just appears. That
+    // includes elements cut by the top edge that never reached the observer's 15% (e.g. after
+    // jumping straight to the bottom), which would otherwise stay invisible.
     let scrollQueued = false;
     const onScroll = () => {
       if (scrollQueued) return;
@@ -366,7 +373,9 @@
       requestAnimationFrame(() => {
         scrollQueued = false;
         pending.forEach((el) => {
-          if (el._taken || el.getBoundingClientRect().bottom > 0) return;
+          if (el._taken) return;
+          const r = el.getBoundingClientRect();
+          if (r.bottom > 0 && (r.top >= 0 || S.queue.includes(el))) return;
           if (S.queue.includes(el)) S.queue.splice(S.queue.indexOf(el), 1);
           finish(el);
         });
@@ -384,8 +393,26 @@
     };
     document.addEventListener("focusin", onFocus);
 
-    // Idle agents wait along the right edge.
-    const parkingSpot = (i) => ({ x: innerWidth - 100, y: 110 + i * 56 });
+    // Off-screen spot beside the nearest side edge (the name label sits right of the arrow,
+    // so the left side needs more room to hide it).
+    const offEdge = (a, toLeft = a.x < innerWidth / 2) => ({
+      x: toLeft ? -140 : innerWidth + 40,
+      y: clamp(a.y, 40, innerHeight - 40),
+    });
+
+    // Nothing to do on screen: slip out of view instead of hovering over the content.
+    async function hide(a) {
+      a.away = true;
+      const pt = offEdge(a);
+      await move(a, () => pt, 500);
+      a.el.style.opacity = 0;
+    }
+
+    // Work arrived: reappear just off-screen and fly in from there.
+    function show(a) {
+      a.away = false;
+      a.el.style.opacity = 1;
+    }
 
     // Own kind of work first; otherwise help with whatever is waiting.
     function takeTask(a) {
@@ -403,10 +430,15 @@
         const task = takeTask(a);
         if (!task) {
           if (!S.busy) stamp(); // first screen built → count it as seen
-          await move(a, () => parkingSpot(a.i), 700);
-          await wait(250);
+          // Short grace period: a panel that just landed hands its text over a moment later.
+          const now = performance.now();
+          if (!a.idleSince) a.idleSince = now;
+          if (!a.away && now - a.idleSince > 900) await hide(a);
+          else await wait(200);
           continue;
         }
+        a.idleSince = 0;
+        if (a.away) show(a);
         task.el._taken = true;
         S.busy++;
         try {
@@ -416,7 +448,42 @@
           S.busy--;
         }
       }
-      if (!S.stopped) await move(a, () => ({ x: innerWidth + 60, y: a.y }), 600);
+    }
+
+    // Everything built: the crew lines up mid-screen, waves one by one, and leaves together.
+    async function finale() {
+      const n = agents.length;
+      const gap = Math.min(84, (innerWidth - 140) / Math.max(1, n - 1));
+      const cx = innerWidth / 2 - 24; // labels hang to the right of each arrow
+      const cy = innerHeight * 0.55;
+      const spot = (a) => ({ x: cx + (a.i - (n - 1) / 2) * gap, y: cy });
+
+      agents.forEach(show);
+      await Promise.all(agents.map(async (a) => {
+        await wait(a.i * 80);
+        await move(a, () => spot(a), 900);
+      }));
+      if (S.stopped) return;
+      await wait(300);
+
+      // Wave: each one hops in turn, left to right.
+      await Promise.all(agents.map(async (a) => {
+        await wait(a.i * 110);
+        const p = spot(a);
+        for (let k = 0; k < 2; k++) {
+          await tween(380, (t) => { a.x = p.x; a.y = p.y - Math.sin(t * Math.PI) * 14; render(a); });
+        }
+        ripple(a);
+      }));
+      if (S.stopped) return;
+      await wait(500);
+
+      // Exit to the right, the rightmost first.
+      await Promise.all(agents.map(async (a) => {
+        await wait((n - 1 - a.i) * 90);
+        const out = offEdge(a, false);
+        await move(a, () => out, 800);
+      }));
     }
 
     function stamp() {
@@ -428,44 +495,29 @@
     function teardown() {
       io.disconnect();
       document.removeEventListener("focusin", onFocus);
+      document.removeEventListener("keydown", onKey);
       removeEventListener("scroll", onScroll);
       layer.remove();
     }
 
     function skip() {
+      if (S.stopped) return;
       S.stopped = true;
       stamp();
       pending.forEach((el) => finish(el));
       document.querySelectorAll(".sw-await").forEach((img) => img.classList.remove("sw-await"));
       teardown();
-      hud.remove();
     }
 
-    // ── HUD ──
-    const hud = div("", document.body);
-    hud.id = "sw-hud";
-    hud.setAttribute("aria-hidden", "true");
-    hud.innerHTML =
-      `<span class="sw-dots">${AGENTS.map((d) => `<i style="background:${d.color}"></i>`).join("")}</span>` +
-      `<span class="sw-label"></span><span class="sw-count"></span><button type="button"></button>`;
-    hud.querySelector("button").addEventListener("click", skip);
-    function updateHud() {
-      if (!hud.isConnected) return;
-      const doneAll = S.done >= total;
-      hud.querySelector(".sw-label").textContent = tr(doneAll ? "swarm_done" : "swarm_building").replace("{n}", AGENTS.length);
-      hud.querySelector(".sw-count").textContent = doneAll ? "" : `${S.done}/${total}`;
-      hud.querySelector("button").textContent = tr("swarm_skip");
-      hud.querySelector("button").hidden = doneAll;
-    }
-    updateHud();
+    // Esc builds everything at once.
+    const onKey = (e) => { if (e.key === "Escape") skip(); };
+    document.addEventListener("keydown", onKey);
 
-    Promise.all(agents.map(agentLoop)).then(() => {
+    Promise.all(agents.map(agentLoop)).then(async () => {
       if (S.stopped) return;
       stamp();
-      teardown();
-      updateHud();
-      setTimeout(() => { hud.style.opacity = 0; }, 2500);
-      setTimeout(() => hud.remove(), 3000);
+      await finale();
+      if (!S.stopped) teardown();
     });
   }
 
